@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Stand By Me</string>
+  <!-- Registro Persona Encarga-->
+    <string name="lblTituloPE">Encargado</string>
+    <string name="lblNombre">Nombre</string>
+    <string name="lblApellido">Apellido</string>
+    <string name="lblNumCel">Número Celular</string>
+    <string name="lblNumCel">Número Celular</string>
+
 </resources>
