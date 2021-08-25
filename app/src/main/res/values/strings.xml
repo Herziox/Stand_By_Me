@@ -9,6 +9,7 @@
     <string name="lblConContra">Confirmar Contraseña</string>
     <string name="lblSiguiente">Siguiente</string>
     <string name="lblObservaciones">Observaciones</string>
+    <string name="lblComenzar">Comenzar</string>
 
     <!-- Registro Persona Encarga-->
     <string name="lblTituloPE">Encargado</string>
