@@ -13,11 +13,13 @@
     <string name="lblInicioSesion">Iniciar Sesión</string>
 
     <!-- Registro Persona Encarga-->
-    <string name="lblTituloPE">Encargado</string>
+    <string name="lblTituloPE">Persona Encargada</string>
 
     <!-- Registro Adulto Mayor-->
     <string name="lblTituloAM">Adulto Mayor</string>
 
+    <!-- Seleccionar Usuario-->
+    <string name="lblSelUsu">Seleccionar Usuario</string>
 
 
 </resources>

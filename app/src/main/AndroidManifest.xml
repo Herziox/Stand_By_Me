@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.StandByMe">
-        <activity android:name=".RegistroAdultoMayor"></activity>
+        <activity android:name=".SeleccionarUsuario"></activity>
+        <activity android:name=".RegistroAdultoMayor" />
         <activity android:name=".RegistroPersonaEncargada" />
         <activity android:name=".MainActivity">
             <intent-filter>

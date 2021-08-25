@@ -61,6 +61,7 @@ public class RegistroAdultoMayor extends AppCompatActivity {
         }
         if (registroLleno){
             Toast.makeText(this, "Registro lleno", Toast.LENGTH_SHORT).show();
+            System.out.println("res: "+nombreAM+" "+apellidoAM+" "+numCelAM+" "+observacionesAM+" "+fechaNacAM+" "+contraAM+"\n");
         }else{
             Toast.makeText(this, "Por favor llene correctamente los campos", Toast.LENGTH_SHORT).show();
         }
