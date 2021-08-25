@@ -1,7 +1,6 @@
 <resources>
+    <!-- General-->
     <string name="app_name">Stand By Me</string>
-  <!-- Registro Persona Encarga-->
-    <string name="lblTituloPE">Encargado</string>
     <string name="lblNombre">Nombre</string>
     <string name="lblApellido">Apellido</string>
     <string name="lblFechaNac">Fecha de Nacimiento</string>
@@ -9,5 +8,14 @@
     <string name="lblContra">Contraseña</string>
     <string name="lblConContra">Confirmar Contraseña</string>
     <string name="lblSiguiente">Siguiente</string>
+    <string name="lblObservaciones">Observaciones</string>
+
+    <!-- Registro Persona Encarga-->
+    <string name="lblTituloPE">Encargado</string>
+
+    <!-- Registro Adulto Mayor-->
+    <string name="lblTituloAM">Adulto Mayor</string>
+
+
 
 </resources>
