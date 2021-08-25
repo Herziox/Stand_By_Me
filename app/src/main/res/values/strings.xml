@@ -4,7 +4,10 @@
     <string name="lblTituloPE">Encargado</string>
     <string name="lblNombre">Nombre</string>
     <string name="lblApellido">Apellido</string>
+    <string name="lblFechaNac">Fecha de Nacimiento</string>
     <string name="lblNumCel">Número Celular</string>
-    <string name="lblNumCel">Número Celular</string>
+    <string name="lblContra">Contraseña</string>
+    <string name="lblConContra">Confirmar Contraseña</string>
+    <string name="lblSiguiente">Siguiente</string>
 
 </resources>
