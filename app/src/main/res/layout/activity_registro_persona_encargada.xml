@@ -190,6 +190,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
         android:background="@color/Secundario"
+        android:onClick="Registrar"
         android:text="@string/lblSiguiente"
         app:backgroundTint="@color/Secundario"
         app:layout_constraintEnd_toEndOf="parent"
