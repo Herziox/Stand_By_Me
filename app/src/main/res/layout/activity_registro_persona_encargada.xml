@@ -8,10 +8,11 @@
     tools:context=".RegistroPersonaEncargada">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/lblTituloPersonaEncargada"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
+        android:text="@string/lblTituloPE"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,7 +26,8 @@
         android:layout_marginStart="36dp"
         android:layout_marginLeft="36dp"
         android:layout_marginTop="56dp"
-        app:layout_constraintEnd_toStartOf="@+id/txtNombreAM"
+        android:text="@string/lblNombre"
+        app:layout_constraintEnd_toStartOf="@+id/txtNombrePE"
         app:layout_constraintHorizontal_bias="0.209"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView4"
@@ -33,14 +35,14 @@
 
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="140dp"
-        android:layout_marginLeft="140dp"
+        android:layout_width="111dp"
+        android:layout_height="126dp"
         android:layout_marginTop="24dp"
+        android:background="@drawable/persona_encargada"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:layout_constraintTop_toBottomOf="@+id/lblTituloPersonaEncargada"
+        tools:srcCompat="@drawable/persona_encargada" />
 
     <TextView
         android:id="@+id/textView4"
@@ -49,6 +51,7 @@
         android:layout_marginStart="44dp"
         android:layout_marginLeft="44dp"
         android:layout_marginTop="24dp"
+        android:text="@string/lblNumCel"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
         tools:text="@string/lblNumCel" />
@@ -60,7 +63,8 @@
         android:layout_marginStart="44dp"
         android:layout_marginLeft="44dp"
         android:layout_marginTop="12dp"
-        app:layout_constraintEnd_toStartOf="@+id/txtFechaNacAM"
+        android:text="@string/lblFechaNac"
+        app:layout_constraintEnd_toStartOf="@+id/txtFechaNacPE"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
@@ -73,7 +77,8 @@
         android:layout_marginStart="36dp"
         android:layout_marginLeft="36dp"
         android:layout_marginTop="20dp"
-        app:layout_constraintEnd_toStartOf="@+id/txtContraAM"
+        android:text="@string/lblContra"
+        app:layout_constraintEnd_toStartOf="@+id/txtContraPE"
         app:layout_constraintHorizontal_bias="0.346"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5"
@@ -86,7 +91,8 @@
         android:layout_marginStart="36dp"
         android:layout_marginLeft="36dp"
         android:layout_marginTop="32dp"
-        app:layout_constraintEnd_toStartOf="@+id/txtConContraAM"
+        android:text="@string/lblConContra"
+        app:layout_constraintEnd_toStartOf="@+id/txtConContraPE"
         app:layout_constraintHorizontal_bias="0.384"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6"
@@ -99,14 +105,15 @@
         android:layout_marginStart="32dp"
         android:layout_marginLeft="32dp"
         android:layout_marginTop="36dp"
-        app:layout_constraintEnd_toStartOf="@+id/txtApellidoAM"
+        android:text="@string/lblApellido"
+        app:layout_constraintEnd_toStartOf="@+id/txtApellidoPE"
         app:layout_constraintHorizontal_bias="0.235"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
         tools:text="@string/lblApellido" />
 
     <EditText
-        android:id="@+id/txtNombreAM"
+        android:id="@+id/txtNombrePE"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
@@ -118,7 +125,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
     <EditText
-        android:id="@+id/txtApellidoAM"
+        android:id="@+id/txtApellidoPE"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
@@ -127,10 +134,10 @@
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtNombreAM" />
+        app:layout_constraintTop_toBottomOf="@+id/txtNombrePE" />
 
     <EditText
-        android:id="@+id/txtNumCelAM"
+        android:id="@+id/txtNumCelPE"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
@@ -139,10 +146,10 @@
         android:ems="10"
         android:inputType="phone"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtApellidoAM" />
+        app:layout_constraintTop_toBottomOf="@+id/txtApellidoPE" />
 
     <EditText
-        android:id="@+id/txtContraAM"
+        android:id="@+id/txtContraPE"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -151,10 +158,10 @@
         android:ems="10"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtFechaNacAM" />
+        app:layout_constraintTop_toBottomOf="@+id/txtFechaNacPE" />
 
     <EditText
-        android:id="@+id/txtConContraAM"
+        android:id="@+id/txtConContraPE"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -163,10 +170,10 @@
         android:ems="10"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtContraAM" />
+        app:layout_constraintTop_toBottomOf="@+id/txtContraPE" />
 
     <EditText
-        android:id="@+id/txtFechaNacAM"
+        android:id="@+id/txtFechaNacPE"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -175,16 +182,19 @@
         android:ems="10"
         android:inputType="date"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtNumCelAM" />
+        app:layout_constraintTop_toBottomOf="@+id/txtNumCelPE" />
 
     <Button
         android:id="@+id/btnSiguiente"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
+        android:background="@color/Secundario"
+        android:text="@string/lblSiguiente"
+        app:backgroundTint="@color/Secundario"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtConContraAM"
+        app:layout_constraintTop_toBottomOf="@+id/txtConContraPE"
         tools:text="@string/lblSiguiente" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
