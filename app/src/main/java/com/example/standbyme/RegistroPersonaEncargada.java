@@ -49,7 +49,7 @@ public class RegistroPersonaEncargada extends AppCompatActivity {
         String apellido = etxApellido.getText().toString();
         String numCelAM = etxNumCel.getText().toString();
         String correoElectronico = etxCorreoElec.getText().toString();
-        String contra = etxConContra.getText().toString();
+        String contra = etxContra.getText().toString();
         String conContra = etxConContra.getText().toString();
         boolean registroLleno = true;
 
@@ -71,11 +71,11 @@ public class RegistroPersonaEncargada extends AppCompatActivity {
         }
         if (conContra.length() == 0) {
             registroLleno = false;
-        }
-        if (!conContra.equals(contra)) {
+        }else{
+        if (!contra.equals(conContra)) {
             Toast.makeText(this, "La contraseña no coincide", Toast.LENGTH_SHORT).show();
             registroLleno = false;
-        }
+        }}
         if (registroLleno) {
             PersonaEncargada pe = new PersonaEncargada();
             pe.setUid(UUID.randomUUID().toString());
@@ -87,6 +87,7 @@ public class RegistroPersonaEncargada extends AppCompatActivity {
             databaseReference.child("PersonaEncargada").child(pe.getUid()).setValue(pe);
             Toast.makeText(this, "Registrado", Toast.LENGTH_SHORT).show();
             System.out.println("res: " + nombre + " " + apellido + " " + numCelAM  + " " + correoElectronico + " " + contra + "\n");
+
             Intent siguiente = new Intent(this, RegistroAdultoMayor.class);
             startActivity(siguiente);
 
