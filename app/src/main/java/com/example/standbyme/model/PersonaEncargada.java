@@ -62,6 +62,6 @@ public class PersonaEncargada {
 
     @Override
     public String toString() {
-        return nombre;
+        return nombre+" "+apellido;
     }
 }

@@ -21,13 +21,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-
         tools:text="@string/lblTituloAM" />
 
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="114dp"
-        android:layout_height="107dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_marginTop="24dp"
         android:background="@drawable/adulto_mayor"
         android:layout_gravity="center_horizontal"
@@ -46,23 +45,23 @@
             android:id="@+id/txt_nombrePersonaAM"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
+            android:ems="5"
             android:inputType="textPersonName"
-            android:paddingTop="15dp"/>
+            android:paddingTop="20dp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Apellidos">
+        android:hint="Apellido">
 
         <EditText
             android:id="@+id/txt_apellidoPersonaAM"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
+            android:ems="5"
             android:inputType="textPersonName"
-            android:paddingTop="15dp"/>
+            android:paddingTop="20dp"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -74,9 +73,9 @@
             android:id="@+id/txt_telefonoPersonaAM"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
+            android:ems="5"
             android:inputType="phone"
-            android:paddingTop="15dp"/>
+            android:paddingTop="20dp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -88,9 +87,9 @@
             android:id="@+id/txt_cedulaPersonaAM"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
+            android:ems="5"
             android:inputType="number"
-            android:paddingTop="15dp"/>
+            android:paddingTop="20dp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -102,9 +101,9 @@
             android:id="@+id/txt_fechaNacimientoPersonaAM"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
+            android:ems="5"
             android:inputType="date"
-            android:paddingTop="15dp"/>
+            android:paddingTop="20dp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -116,9 +115,9 @@
             android:id="@+id/txt_passwordPersonaAM"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
+            android:ems="5"
             android:inputType="textPassword"
-            android:paddingTop="15dp"/>
+            android:paddingTop="20dp"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -130,9 +129,9 @@
             android:id="@+id/txt_repasswordPersonaAM"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
+            android:ems="5"
             android:inputType="textPassword"
-            android:paddingTop="15dp"/>
+            android:paddingTop="20dp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -144,14 +143,14 @@
             android:id="@+id/txt_observacionesPersonaAM"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPassword"
-            android:paddingTop="15dp"/>
+            android:ems="5"
+            android:inputType="text"
+            android:paddingTop="20dp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:layout_width="wrap_content"
-        android:textSize="30dp"
+        android:textSize="15dp"
         android:layout_margin="10dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
