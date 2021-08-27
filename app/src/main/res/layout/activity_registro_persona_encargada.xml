@@ -27,7 +27,7 @@
         android:layout_marginLeft="36dp"
         android:layout_marginTop="56dp"
         android:text="@string/lblNombre"
-        app:layout_constraintEnd_toStartOf="@+id/txtNombre"
+        app:layout_constraintEnd_toStartOf="@+id/txtNombrePE"
         app:layout_constraintHorizontal_bias="0.209"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView4"
@@ -76,7 +76,7 @@
         android:layout_marginLeft="36dp"
         android:layout_marginTop="20dp"
         android:text="@string/lblContra"
-        app:layout_constraintEnd_toStartOf="@+id/txtContra"
+        app:layout_constraintEnd_toStartOf="@+id/txtContraPE"
         app:layout_constraintHorizontal_bias="0.346"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5"
@@ -90,7 +90,7 @@
         android:layout_marginLeft="36dp"
         android:layout_marginTop="32dp"
         android:text="@string/lblConContra"
-        app:layout_constraintEnd_toStartOf="@+id/txtConContra"
+        app:layout_constraintEnd_toStartOf="@+id/txtConContraPE"
         app:layout_constraintHorizontal_bias="0.384"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6"
@@ -104,14 +104,14 @@
         android:layout_marginLeft="32dp"
         android:layout_marginTop="36dp"
         android:text="@string/lblApellido"
-        app:layout_constraintEnd_toStartOf="@+id/txtApellido"
+        app:layout_constraintEnd_toStartOf="@+id/txtApellidoPE"
         app:layout_constraintHorizontal_bias="0.235"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
         tools:text="@string/lblApellido" />
 
     <EditText
-        android:id="@+id/txtNombre"
+        android:id="@+id/txtNombrePE"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
@@ -123,7 +123,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
     <EditText
-        android:id="@+id/txtApellido"
+        android:id="@+id/txtApellidoPE"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
@@ -132,10 +132,10 @@
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtNombre" />
+        app:layout_constraintTop_toBottomOf="@+id/txtNombrePE" />
 
     <EditText
-        android:id="@+id/txtNumCel"
+        android:id="@+id/txtNumCelPE"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
@@ -144,10 +144,10 @@
         android:ems="10"
         android:inputType="phone"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtApellido" />
+        app:layout_constraintTop_toBottomOf="@+id/txtApellidoPE" />
 
     <EditText
-        android:id="@+id/txtContra"
+        android:id="@+id/txtContraPE"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -159,7 +159,7 @@
         app:layout_constraintTop_toBottomOf="@+id/txtCorreoElectronicoPE" />
 
     <EditText
-        android:id="@+id/txtConContra"
+        android:id="@+id/txtConContraPE"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -168,10 +168,10 @@
         android:ems="10"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtContra" />
+        app:layout_constraintTop_toBottomOf="@+id/txtContraPE" />
 
     <Button
-        android:id="@+id/btnSiguiente"
+        android:id="@+id/btnSiguientePE"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
@@ -181,7 +181,7 @@
         app:backgroundTint="@color/Secundario"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtConContra"
+        app:layout_constraintTop_toBottomOf="@+id/txtConContraPE"
         tools:text="@string/lblSiguiente" />
 
     <EditText
@@ -194,6 +194,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.174"
         app:layout_constraintStart_toEndOf="@+id/textView5"
-        app:layout_constraintTop_toBottomOf="@+id/txtNumCel" />
+        app:layout_constraintTop_toBottomOf="@+id/txtNumCelPE" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
