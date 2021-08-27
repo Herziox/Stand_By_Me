@@ -14,7 +14,7 @@ public class SeleccionarUsuario extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_seleccionar_usuario);
 
-        TextView txtTituloSelUsu = (TextView) findViewById(R.id.lblSeleccionarUsuario);
+
 
 
     }

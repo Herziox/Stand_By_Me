@@ -2,6 +2,7 @@ package com.example.standbyme;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -15,12 +16,12 @@ public class RegistroPersonaEncargada extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro_persona_encargada);
         //Captura de datos de la interfaz
-        etxNombre = (EditText) findViewById(R.id.txtNombrePE);
-        etxApellido = (EditText) findViewById(R.id.txtApellidoPE);
-        etxNumCel = (EditText) findViewById(R.id.txtNumCelPE);
-        etxFechaNac = (EditText) findViewById(R.id.txtFechaNacPE);
-        etxContra = (EditText) findViewById(R.id.txtContraPE);
-        etxConContra = (EditText) findViewById(R.id.txtConContraPE);
+        etxNombre = (EditText) findViewById(R.id.txtNombre);
+        etxApellido = (EditText) findViewById(R.id.txtApellido);
+        etxNumCel = (EditText) findViewById(R.id.txtNumCel);
+        etxFechaNac = (EditText) findViewById(R.id.txtCorreoElectronicoPE);
+        etxContra = (EditText) findViewById(R.id.txtContra);
+        etxConContra = (EditText) findViewById(R.id.txtConContra);
     }
 
     public void Registrar(View view) {
@@ -58,8 +59,12 @@ public class RegistroPersonaEncargada extends AppCompatActivity {
         if (registroLleno) {
             Toast.makeText(this, "Registro lleno", Toast.LENGTH_SHORT).show();
             System.out.println("res: " + nombre + " " + apellido + " " + numCelAM  + " " + fechaNac + " " + contra + "\n");
+            Intent siguiente = new Intent(this, RegistroAdultoMayor.class);
+            startActivity(siguiente);
         } else {
             Toast.makeText(this, "Por favor llene correctamente los campos", Toast.LENGTH_SHORT).show();
         }
     }
+
+
 }

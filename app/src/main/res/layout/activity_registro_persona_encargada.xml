@@ -27,7 +27,7 @@
         android:layout_marginLeft="36dp"
         android:layout_marginTop="56dp"
         android:text="@string/lblNombre"
-        app:layout_constraintEnd_toStartOf="@+id/txtNombrePE"
+        app:layout_constraintEnd_toStartOf="@+id/txtNombre"
         app:layout_constraintHorizontal_bias="0.209"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView4"
@@ -63,12 +63,10 @@
         android:layout_marginStart="44dp"
         android:layout_marginLeft="44dp"
         android:layout_marginTop="12dp"
-        android:text="@string/lblFechaNac"
-        app:layout_constraintEnd_toStartOf="@+id/txtFechaNacPE"
-        app:layout_constraintHorizontal_bias="0.0"
+        android:text="@string/lblCorreoElectronico"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
-        tools:text="@string/lblFechaNac" />
+        tools:text="@string/lblCorreoElectronico" />
 
     <TextView
         android:id="@+id/textView6"
@@ -78,7 +76,7 @@
         android:layout_marginLeft="36dp"
         android:layout_marginTop="20dp"
         android:text="@string/lblContra"
-        app:layout_constraintEnd_toStartOf="@+id/txtContraPE"
+        app:layout_constraintEnd_toStartOf="@+id/txtContra"
         app:layout_constraintHorizontal_bias="0.346"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5"
@@ -92,7 +90,7 @@
         android:layout_marginLeft="36dp"
         android:layout_marginTop="32dp"
         android:text="@string/lblConContra"
-        app:layout_constraintEnd_toStartOf="@+id/txtConContraPE"
+        app:layout_constraintEnd_toStartOf="@+id/txtConContra"
         app:layout_constraintHorizontal_bias="0.384"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6"
@@ -106,14 +104,14 @@
         android:layout_marginLeft="32dp"
         android:layout_marginTop="36dp"
         android:text="@string/lblApellido"
-        app:layout_constraintEnd_toStartOf="@+id/txtApellidoPE"
+        app:layout_constraintEnd_toStartOf="@+id/txtApellido"
         app:layout_constraintHorizontal_bias="0.235"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
         tools:text="@string/lblApellido" />
 
     <EditText
-        android:id="@+id/txtNombrePE"
+        android:id="@+id/txtNombre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
@@ -125,7 +123,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
     <EditText
-        android:id="@+id/txtApellidoPE"
+        android:id="@+id/txtApellido"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
@@ -134,10 +132,10 @@
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtNombrePE" />
+        app:layout_constraintTop_toBottomOf="@+id/txtNombre" />
 
     <EditText
-        android:id="@+id/txtNumCelPE"
+        android:id="@+id/txtNumCel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
@@ -146,43 +144,31 @@
         android:ems="10"
         android:inputType="phone"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtApellidoPE" />
+        app:layout_constraintTop_toBottomOf="@+id/txtApellido" />
 
     <EditText
-        android:id="@+id/txtContraPE"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="64dp"
-        android:layout_marginRight="64dp"
-        android:ems="10"
-        android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtFechaNacPE" />
-
-    <EditText
-        android:id="@+id/txtConContraPE"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="64dp"
-        android:layout_marginRight="64dp"
-        android:ems="10"
-        android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtContraPE" />
-
-    <EditText
-        android:id="@+id/txtFechaNacPE"
+        android:id="@+id/txtContra"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginRight="60dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtCorreoElectronicoPE" />
+
+    <EditText
+        android:id="@+id/txtConContra"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="64dp"
         android:layout_marginRight="64dp"
         android:ems="10"
-        android:inputType="date"
+        android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtNumCelPE" />
+        app:layout_constraintTop_toBottomOf="@+id/txtContra" />
 
     <Button
         android:id="@+id/btnSiguiente"
@@ -195,7 +181,19 @@
         app:backgroundTint="@color/Secundario"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtConContraPE"
+        app:layout_constraintTop_toBottomOf="@+id/txtConContra"
         tools:text="@string/lblSiguiente" />
+
+    <EditText
+        android:id="@+id/txtCorreoElectronicoPE"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.174"
+        app:layout_constraintStart_toEndOf="@+id/textView5"
+        app:layout_constraintTop_toBottomOf="@+id/txtNumCel" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

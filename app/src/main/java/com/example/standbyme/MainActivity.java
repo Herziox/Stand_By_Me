@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
     //Botón Registrarse
     public void Registrarse(View view){
-        Intent registrarse = new Intent(this, SeleccionarUsuario.class);
+        Intent registrarse = new Intent(this, RegistroPersonaEncargada.class);
         startActivity(registrarse);
     }
 

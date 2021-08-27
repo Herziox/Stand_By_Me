@@ -17,13 +17,13 @@ public class RegistroAdultoMayor extends AppCompatActivity {
         setContentView(R.layout.activity_registro_adulto_mayor);
 
         //Captura de datos de la interfaz
-        etxNombre = (EditText)findViewById(R.id.txtNombrePE);
-        etxApellido = (EditText)findViewById(R.id.txtApellidoPE);
-        etxNumCel = (EditText)findViewById(R.id.txtNumCelPE);
+        etxNombre = (EditText)findViewById(R.id.txtNombre);
+        etxApellido = (EditText)findViewById(R.id.txtApellido);
+        etxNumCel = (EditText)findViewById(R.id.txtNumCel);
         etxObservaciones = (EditText)findViewById(R.id.txtObservacionesAM);
-        etxFechaNac = (EditText)findViewById(R.id.txtFechaNacPE);
-        etxContra = (EditText)findViewById(R.id.txtContraPE);
-        etxConContra = (EditText)findViewById(R.id.txtConContraPE);
+        etxFechaNac = (EditText)findViewById(R.id.txtCorreoElectronico);
+        etxContra = (EditText)findViewById(R.id.txtContra);
+        etxConContra = (EditText)findViewById(R.id.txtConContra);
     }
 
     public void Registrar(View view){
