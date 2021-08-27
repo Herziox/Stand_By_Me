@@ -1,3 +1,25 @@
 <resources>
+    <!-- General-->
     <string name="app_name">Stand By Me</string>
+    <string name="lblNombre">Nombre</string>
+    <string name="lblApellido">Apellido</string>
+    <string name="lblCorreoElectronico">Correo Electronico</string>
+    <string name="lblNumCel">Número Celular</string>
+    <string name="lblContra">Contraseña</string>
+    <string name="lblConContra">Confirmar Contraseña</string>
+    <string name="lblSiguiente">Siguiente</string>
+    <string name="lblObservaciones">Observaciones</string>
+    <string name="lblRegistrarse">Registrarse</string>
+    <string name="lblInicioSesion">Iniciar Sesión</string>
+
+    <!-- Registro Persona Encarga-->
+    <string name="lblTituloPE">Persona Encargada</string>
+
+    <!-- Registro Adulto Mayor-->
+    <string name="lblTituloAM">Adulto Mayor</string>
+
+    <!-- Seleccionar Usuario-->
+    <string name="lblSelUsu">Seleccionar Usuario</string>
+
+
 </resources>
