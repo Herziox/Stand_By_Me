@@ -77,7 +77,6 @@ public class RegistroPersonaEncargada extends AppCompatActivity {
             registroLleno = false;
         }
         if (registroLleno) {
-
             PersonaEncargada pe = new PersonaEncargada();
             pe.setUid(UUID.randomUUID().toString());
             pe.setNombre(nombre);
@@ -86,7 +85,7 @@ public class RegistroPersonaEncargada extends AppCompatActivity {
             pe.setCorreoElectronico(correoElectronico);
             pe.setContraseña(contra);
             databaseReference.child("PersonaEncargada").child(pe.getUid()).setValue(pe);
-            Toast.makeText(this, "Registro lleno", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Registrado", Toast.LENGTH_SHORT).show();
             System.out.println("res: " + nombre + " " + apellido + " " + numCelAM  + " " + correoElectronico + " " + contra + "\n");
             Intent siguiente = new Intent(this, RegistroAdultoMayor.class);
             startActivity(siguiente);
