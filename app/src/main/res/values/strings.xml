@@ -21,5 +21,17 @@
     <!-- Seleccionar Usuario-->
     <string name="lblSelUsu">Seleccionar Usuario</string>
 
+    <!-- Residencia-->
+    <string name="lblTituloRE">Residencia</string>
+    <string name="lblProvincia">Provincia</string>
+    <string name="lblCiudad">Ciudad</string>
+    <string name="lblParroquia">Parroquia</string>
+    <string name="lblCallePrincipal">Calle Principal</string>
+    <string name="lblCalleSecundaria">Calle Secundaria</string>
+    <string name="lblNumeroCasa">Número</string>
+    <string name="lblLatitud">Latitud</string>
+    <string name="lblLongitud">Longitud</string>
+    <string name="lblCargaAutomatica">Cargar ubicación de forma automática</string>
+
 
 </resources>
