@@ -3,25 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation="vertical"
-    android:padding="15dp"
     android:layout_height="match_parent"
-    android:background="@color/colorBackground"
+    android:orientation="vertical"
+    android:background="@color/colorPrimary"
     tools:context=".RegistroAdultoMayor">
 
     <TextView
         android:id="@+id/lblTituloPersonaEncargada"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:text="@string/lblTituloAM"
+        android:layout_gravity="center_horizontal"
         android:textColor="@color/black"
         android:textSize="24sp"
-        android:layout_gravity="center_horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="@string/lblTituloAM" />
+        android:hint="Adulto Mayor"/>
 
     <ImageView
         android:id="@+id/imageView4"
@@ -35,118 +29,97 @@
         app:layout_constraintTop_toBottomOf="@+id/lblTituloPersonaEncargada"
         tools:srcCompat="@drawable/adulto_mayor" />
 
-
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textFieldNombreAM"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Nombre">
-
-        <EditText
-            android:id="@+id/txt_nombrePersonaAM"
+        <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="5"
             android:inputType="textPersonName"
-            android:paddingTop="20dp" />
+            />
     </com.google.android.material.textfield.TextInputLayout>
-
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textFieldApellidoPE"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Apellido">
-
-        <EditText
-            android:id="@+id/txt_apellidoPersonaAM"
+        <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="5"
             android:inputType="textPersonName"
-            android:paddingTop="20dp"/>
+            />
     </com.google.android.material.textfield.TextInputLayout>
-
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textFieldNumeroCedulaAM"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Telefono">
-
-        <EditText
-            android:id="@+id/txt_telefonoPersonaAM"
+        android:hint="Numero de Cedula">
+        <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="5"
-            android:inputType="phone"
-            android:paddingTop="20dp" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Número de Cedula o Pasaporte">
-
-        <EditText
-            android:id="@+id/txt_cedulaPersonaAM"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="5"
             android:inputType="number"
-            android:paddingTop="20dp" />
+            />
     </com.google.android.material.textfield.TextInputLayout>
-
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textFieldNumeroTelefonoAM"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Numero de Telefono">
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="phone"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textFieldFechaDeNacimientoAM"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Fecha de Nacimiento">
-
-        <EditText
-            android:id="@+id/txt_fechaNacimientoPersonaAM"
+        <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="5"
-            android:inputType="date"
-            android:paddingTop="20dp" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Contraseña">
-
-        <EditText
-            android:id="@+id/txt_passwordPersonaAM"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="5"
-            android:inputType="textPassword"
-            android:paddingTop="20dp"/>
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Repetir Contraseña">
-
-        <EditText
-            android:id="@+id/txt_repasswordPersonaAM"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="5"
-            android:inputType="textPassword"
-            android:paddingTop="20dp" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Observaciones">
-
-        <EditText
-            android:id="@+id/txt_observacionesPersonaAM"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="5"
             android:inputType="text"
-            android:paddingTop="20dp" />
+            />
     </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textFieldPasswordAM"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:endIconMode="password_toggle"
+        android:hint="Contraseña">
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textFieldRePasswordAM"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:endIconMode="password_toggle"
+        android:hint="Repetir Contraseña">
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textFielObservacionesAM"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="OBSERVACIONES">
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
 
     <TextView
         android:layout_width="wrap_content"
@@ -162,7 +135,3 @@
         android:layout_height="match_parent" />
 
 </LinearLayout>
-
-
-
-
