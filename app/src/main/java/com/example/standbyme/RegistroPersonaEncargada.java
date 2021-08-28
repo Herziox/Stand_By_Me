@@ -1,25 +1,37 @@
 package com.example.standbyme;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.standbyme.model.PersonaEncargada;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 
 public class RegistroPersonaEncargada extends AppCompatActivity {
-    private EditText etxNombre, etxApellido, etxNumCel, etxObservaciones, etxCorreoElec, etxContra, etxConContra;
+    private EditText etxNombre, etxApellido, etxNumCel, etxObservaciones, etxCorreoElec, etxContra, etxConContra, etxcedula;
+    private Button mButtonRegister;
 
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
+    FirebaseAuth firebaseAuth;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,11 +41,44 @@ public class RegistroPersonaEncargada extends AppCompatActivity {
         etxNombre = (EditText) findViewById(R.id.txtNombrePE);
         etxApellido = (EditText) findViewById(R.id.txtApellidoPE);
         etxNumCel = (EditText) findViewById(R.id.txtNumCelPE);
+        etxcedula = (EditText) findViewById(R.id.txcedulaPE);
         etxCorreoElec = (EditText) findViewById(R.id.txtCorreoElectronicoPE);
         etxContra = (EditText) findViewById(R.id.txtContraPE);
         etxConContra = (EditText) findViewById(R.id.txtConContraPE);
 
+        mButtonRegister = (Button) findViewById(R.id.btnRegistrase);
+
         inicializarFirebase();
+
+        mButtonRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String name = etxNombre.getText().toString();
+                String email = etxCorreoElec.getText().toString();
+                String password = etxContra.getText().toString();
+                String repassword = etxConContra.getText().toString();
+                String numeCelular = etxNumCel.getText().toString();
+                String numCedula = etxcedula.getText().toString();
+                String apellido = etxApellido.getText().toString();
+
+                if (!name.isEmpty() && !email.isEmpty() && !password.isEmpty() && !repassword.isEmpty()
+                        && !numeCelular.isEmpty() && !numCedula.isEmpty() && !apellido.isEmpty() ) {
+                    if (password.length() >= 6) {
+                        if (password.equals(repassword)) {
+                            registrar();
+                        }else{
+                            etxConContra.setError("Las contraseñas no coincieden");
+                        }
+                    } else {
+                        Toast.makeText(RegistroPersonaEncargada.this, "La contraseña debe tener al menos 6 caracteres", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Toast.makeText(RegistroPersonaEncargada.this, "Debe completar los campos", Toast.LENGTH_SHORT).show();
+                }
+
+
+            }
+        });
 
 
 
@@ -42,59 +87,50 @@ public class RegistroPersonaEncargada extends AppCompatActivity {
         FirebaseApp.initializeApp(this);
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference();
+        firebaseAuth = FirebaseAuth.getInstance();
     }
 
-    public void Registrar(View view) {
-        String nombre = etxNombre.getText().toString();
+    public void registrar() {
+        String name = etxNombre.getText().toString();
+        String email = etxCorreoElec.getText().toString();
+        String password = etxContra.getText().toString();
+        String repassword = etxConContra.getText().toString();
+        String numeCelular = etxNumCel.getText().toString();
+        String numCedula = etxcedula.getText().toString();
         String apellido = etxApellido.getText().toString();
-        String numCelAM = etxNumCel.getText().toString();
-        String correoElectronico = etxCorreoElec.getText().toString();
-        String contra = etxContra.getText().toString();
-        String conContra = etxConContra.getText().toString();
-        boolean registroLleno = true;
-
-
-        if (nombre.length() == 0) {
-            registroLleno = false;
-        }
-        if (apellido.length() == 0) {
-            registroLleno = false;
-        }
-        if (numCelAM.length() == 0) {
-            registroLleno = false;
-        }
-        if (correoElectronico.length() == 0) {
-            registroLleno = false;
-        }
-        if (contra.length() == 0) {
-            registroLleno = false;
-        }
-        if (conContra.length() == 0) {
-            registroLleno = false;
-        }else{
-        if (!contra.equals(conContra)) {
-            Toast.makeText(this, "La contraseña no coincide", Toast.LENGTH_SHORT).show();
-            registroLleno = false;
-        }}
-        if (registroLleno) {
-            PersonaEncargada pe = new PersonaEncargada();
-            pe.setUid(UUID.randomUUID().toString());
-            pe.setNombre(nombre);
-            pe.setApellido(apellido);
-            pe.setNumeroCelular(numCelAM);
-            pe.setCorreoElectronico(correoElectronico);
-            pe.setContraseña(contra);
-            databaseReference.child("PersonaEncargada").child(pe.getUid()).setValue(pe);
-            Toast.makeText(this, "Registrado", Toast.LENGTH_SHORT).show();
-            System.out.println("res: " + nombre + " " + apellido + " " + numCelAM  + " " + correoElectronico + " " + contra + "\n");
-
-            Intent siguiente = new Intent(this, RegistroAdultoMayor.class);
-            startActivity(siguiente);
-
-        } else {
-            Toast.makeText(this, "Por favor llene correctamente los campos", Toast.LENGTH_SHORT).show();
-        }
+        firebaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()) {
+                    PersonaEncargada pe = new PersonaEncargada();
+                    pe.setUid(numCedula);
+                    pe.setNombre(name);
+                    pe.setApellido(apellido);
+                    pe.setContraseña(password);
+                    pe.setNumeroCelular(numeCelular);
+                    pe.setCorreoElectronico(email);
+                    pe.setCedula(numCedula);
+                    databaseReference.child("PersonaEncargada").child(pe.getUid()).setValue(pe).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task2) {
+                            if (task2.isSuccessful()) {
+                                startActivity(new Intent(RegistroPersonaEncargada.this, ProfileActitvity.class));
+                                finish();
+                            } else {
+                                Toast.makeText(RegistroPersonaEncargada.this, "No se pudo registrar los datos correctamente", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+                } else {
+                    Toast.makeText(RegistroPersonaEncargada.this, "No se pudo registrar el usuario", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
 
 }
+
+
+
+

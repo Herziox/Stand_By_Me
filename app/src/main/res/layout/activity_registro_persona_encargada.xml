@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:padding="15dp"
     android:layout_height="match_parent"
     android:background="@color/colorBackground"
-    tools:context=".RegistroPersonaEncargada">
+    tools:context=".RegistroAdultoMayor">
 
     <TextView
         android:id="@+id/lblTituloPersonaEncargada"
@@ -13,187 +15,133 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
         android:text="@string/lblTituloPE"
+        android:layout_gravity="center_horizontal"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="@string/lblTituloPE" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginLeft="36dp"
-        android:layout_marginTop="56dp"
-        android:text="@string/lblNombre"
-        app:layout_constraintEnd_toStartOf="@+id/txtNombrePE"
-        app:layout_constraintHorizontal_bias="0.209"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4"
-        tools:text="@string/lblNombre" />
-
     <ImageView
         android:id="@+id/imageView4"
         android:layout_width="111dp"
         android:layout_height="126dp"
         android:layout_marginTop="24dp"
+        android:layout_gravity="center_horizontal"
         android:background="@drawable/persona_encargada"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lblTituloPersonaEncargada"
         tools:srcCompat="@drawable/persona_encargada" />
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="69dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginLeft="44dp"
-        android:layout_marginTop="24dp"
-        android:text="@string/lblNumCel"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3"
-        tools:text="@string/lblNumCel" />
 
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="71dp"
-        android:layout_height="54dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginLeft="44dp"
-        android:layout_marginTop="12dp"
-        android:text="@string/lblCorreoElectronico"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
-        tools:text="@string/lblCorreoElectronico" />
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginLeft="36dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/lblContra"
-        app:layout_constraintEnd_toStartOf="@+id/txtContraPE"
-        app:layout_constraintHorizontal_bias="0.346"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5"
-        tools:text="@string/lblContra" />
+        android:hint="Nombre">
 
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="78dp"
-        android:layout_height="36dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginLeft="36dp"
-        android:layout_marginTop="32dp"
-        android:text="@string/lblConContra"
-        app:layout_constraintEnd_toStartOf="@+id/txtConContraPE"
-        app:layout_constraintHorizontal_bias="0.384"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6"
-        tools:text="@string/lblConContra" />
+        <EditText
+            android:id="@+id/txtNombrePE"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="5"
+            android:inputType="textPersonName"
+            android:paddingTop="20dp" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="36dp"
-        android:text="@string/lblApellido"
-        app:layout_constraintEnd_toStartOf="@+id/txtApellidoPE"
-        app:layout_constraintHorizontal_bias="0.235"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        tools:text="@string/lblApellido" />
+        android:hint="Apellido">
 
-    <EditText
-        android:id="@+id/txtNombrePE"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="72dp"
-        android:layout_marginRight="72dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+        <EditText
+            android:id="@+id/txtApellidoPE"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="5"
+            android:inputType="textPersonName"
+            android:paddingTop="20dp"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <EditText
-        android:id="@+id/txtApellidoPE"
-        android:layout_width="wrap_content"
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="68dp"
-        android:layout_marginRight="68dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtNombrePE" />
+        android:hint="Número de Telefono Celular">
 
-    <EditText
-        android:id="@+id/txtNumCelPE"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="64dp"
-        android:layout_marginRight="64dp"
-        android:ems="10"
-        android:inputType="phone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtApellidoPE" />
+        <EditText
+            android:id="@+id/txtNumCelPE"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="5"
+            android:inputType="phone"
+            android:paddingTop="20dp" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <EditText
-        android:id="@+id/txtContraPE"
-        android:layout_width="wrap_content"
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="60dp"
-        android:layout_marginRight="60dp"
-        android:ems="10"
-        android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtCorreoElectronicoPE" />
+        android:hint="Número de Cedula o Pasaporte">
 
-    <EditText
-        android:id="@+id/txtConContraPE"
-        android:layout_width="wrap_content"
+        <EditText
+            android:id="@+id/txcedulaPE"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="5"
+            android:inputType="number"
+            android:paddingTop="20dp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="64dp"
-        android:layout_marginRight="64dp"
-        android:ems="10"
-        android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtContraPE" />
+        android:hint="Correo Electronico">
+
+        <EditText
+            android:id="@+id/txtCorreoElectronicoPE"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="5"
+            android:inputType="textEmailAddress"
+            android:paddingTop="20dp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Contraseña">
+
+        <EditText
+            android:id="@+id/txtContraPE"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="5"
+            android:inputType="textPassword"
+            android:paddingTop="20dp"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Repetir Contraseña">
+
+        <EditText
+            android:id="@+id/txtConContraPE"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="5"
+            android:inputType="textPassword"
+            android:paddingTop="20dp" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/btnSiguientePE"
-        android:layout_width="wrap_content"
+        android:id="@+id/btnRegistrase"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
-        android:background="@color/Secundario"
-        android:onClick="Registrar"
-        android:text="@string/lblSiguiente"
-        app:backgroundTint="@color/Secundario"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtConContraPE"
-        tools:text="@string/lblSiguiente" />
+        android:background="@color/colorPrimary"
+        android:text="Registrar"
+        android:textColor="@color/white"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="628dp"
+        tools:ignore="MissingConstraints" />
 
-    <EditText
-        android:id="@+id/txtCorreoElectronicoPE"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:inputType="textEmailAddress"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.174"
-        app:layout_constraintStart_toEndOf="@+id/textView5"
-        app:layout_constraintTop_toBottomOf="@+id/txtNumCelPE" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

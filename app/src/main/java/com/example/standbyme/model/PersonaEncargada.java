@@ -8,6 +8,7 @@ public class PersonaEncargada {
     private String numeroCelular;
     private String correoElectronico;
     private String contraseña;
+    private String cedula;
 
     public PersonaEncargada() {
     }
@@ -50,6 +51,14 @@ public class PersonaEncargada {
 
     public void setCorreoElectronico(String correoElectronico) {
         this.correoElectronico = correoElectronico;
+    }
+
+    public String getCedula() {
+        return cedula;
+    }
+
+    public void setCedula(String cedula) {
+        this.cedula = cedula;
     }
 
     public String getContraseña() {

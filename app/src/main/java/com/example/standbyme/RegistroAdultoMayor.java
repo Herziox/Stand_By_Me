@@ -3,6 +3,7 @@ package com.example.standbyme;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -14,6 +15,8 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.standbyme.model.AdultoMayor;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -22,7 +25,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 public class RegistroAdultoMayor extends AppCompatActivity {
@@ -123,7 +128,7 @@ public class RegistroAdultoMayor extends AppCompatActivity {
                     validacion();
                 }else{
                     AdultoMayor am = new AdultoMayor();
-                    am.setUid(UUID.randomUUID().toString());
+                    am.setUid(cedulaAM);
                     am.setNombre(nombreAM);
                     am.setApellido(apellidoAM);
                     am.setTelefono(numCelAM);
@@ -131,7 +136,18 @@ public class RegistroAdultoMayor extends AppCompatActivity {
                     am.setFechaNacimiento(fechaNacAM);
                     am.setContraseña(contraAM);
                     am.setObservaciones(observacionesAM);
-                    databaseReference.child("AdultoMayor").child(am.getUid()).setValue(am);
+                    databaseReference.child("PersonaEncargada").child(am.getUid()).setValue(am).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if (task.isSuccessful()) {
+                                startActivity(new Intent(RegistroAdultoMayor.this, ProfileActitvity.class));
+                                limpiarCajas();
+                                finish();
+                            } else {
+                                Toast.makeText(RegistroAdultoMayor.this, "No se pudo registrar los datos correctamente", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
                     Toast.makeText(this, "Agregado", Toast.LENGTH_LONG).show();
                     limpiarCajas();
                 }
@@ -140,15 +156,27 @@ public class RegistroAdultoMayor extends AppCompatActivity {
             }
             case R.id.icon_save:{
                 AdultoMayor am = new AdultoMayor();
-                am.setUid(adultoMayorSeleccionado.getUid());
+                am.setUid(cedulaAM);
                 am.setNombre(nombreAM);
                 am.setApellido(apellidoAM);
                 am.setTelefono(numCelAM);
                 am.setCedula(cedulaAM);
                 am.setFechaNacimiento(fechaNacAM);
+                am.setContraseña(contraAM);
                 am.setObservaciones(observacionesAM);
-                databaseReference.child("AdultoMayor").child(am.getUid()).setValue(am);
-                Toast.makeText(this, "Actualizado", Toast.LENGTH_LONG).show();
+                databaseReference.child("PersonaEncargada").child(am.getUid()).setValue(am).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            startActivity(new Intent(RegistroAdultoMayor.this, ProfileActitvity.class));
+                            limpiarCajas();
+                            finish();
+                        } else {
+                            Toast.makeText(RegistroAdultoMayor.this, "No se pudo registrar los datos correctamente", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+                Toast.makeText(this, "Guardado", Toast.LENGTH_LONG).show();
                 limpiarCajas();
                 break;
             }
