@@ -1,16 +1,16 @@
 package com.example.standbyme.model;
 
-public class PersonaEncargada {
-
+public class AdultoMayor {
     private String uid;
     private String nombre;
     private String apellido;
-    private String numeroCelular;
-    private String correoElectronico;
-    private String contraseña;
+    private String telefono;
     private String cedula;
+    private String fechaNacimiento;
+    private String contraseña;
+    private String observaciones;
 
-    public PersonaEncargada() {
+    public AdultoMayor() {
     }
 
     public String getUid() {
@@ -37,20 +37,12 @@ public class PersonaEncargada {
         this.apellido = apellido;
     }
 
-    public String getNumeroCelular() {
-        return numeroCelular;
+    public String getTelefono() {
+        return telefono;
     }
 
-    public void setNumeroCelular(String numeroCelular) {
-        this.numeroCelular = numeroCelular;
-    }
-
-    public String getCorreoElectronico() {
-        return correoElectronico;
-    }
-
-    public void setCorreoElectronico(String correoElectronico) {
-        this.correoElectronico = correoElectronico;
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
     }
 
     public String getCedula() {
@@ -61,6 +53,14 @@ public class PersonaEncargada {
         this.cedula = cedula;
     }
 
+    public String getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public void setFechaNacimiento(String fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
+
     public String getContraseña() {
         return contraseña;
     }
@@ -69,8 +69,16 @@ public class PersonaEncargada {
         this.contraseña = contraseña;
     }
 
+    public String getObservaciones() {
+        return observaciones;
+    }
+
+    public void setObservaciones(String observaciones) {
+        this.observaciones = observaciones;
+    }
+
     @Override
     public String toString() {
-        return nombre+" "+apellido;
+        return nombre+" "+apellido+" - "+cedula+" - "+telefono+" - "+fechaNacimiento;
     }
 }
