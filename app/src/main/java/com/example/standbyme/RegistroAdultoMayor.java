@@ -61,7 +61,7 @@ public class RegistroAdultoMayor extends AppCompatActivity {
         listaVAbuelitos = findViewById(R.id.lv_datosAbuelitos);
         //Incialiazmos Firebase
         inicializarFirebase();
-        
+
         listarDatosAbuelitos();
 
         listaVAbuelitos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -71,7 +71,6 @@ public class RegistroAdultoMayor extends AppCompatActivity {
                 etxNombre.setText(adultoMayorSeleccionado.getNombre());
                 etxApellido.setText(adultoMayorSeleccionado.getApellido());
                 etxNumCel.setText(adultoMayorSeleccionado.getTelefono());
-                etxcedula.setText(adultoMayorSeleccionado.getCedula());
                 etxFechaNac.setText(adultoMayorSeleccionado.getFechaNacimiento());
                 etxObservaciones.setText(adultoMayorSeleccionado.getObservaciones());
             }
@@ -136,13 +135,11 @@ public class RegistroAdultoMayor extends AppCompatActivity {
                     am.setFechaNacimiento(fechaNacAM);
                     am.setContraseña(contraAM);
                     am.setObservaciones(observacionesAM);
-                    databaseReference.child("PersonaEncargada").child(am.getUid()).setValue(am).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    databaseReference.child("AdultoMayor").child(am.getUid()).setValue(am).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()) {
-                                startActivity(new Intent(RegistroAdultoMayor.this, ProfileActitvity.class));
                                 limpiarCajas();
-                                finish();
                             } else {
                                 Toast.makeText(RegistroAdultoMayor.this, "No se pudo registrar los datos correctamente", Toast.LENGTH_SHORT).show();
                             }
@@ -160,17 +157,14 @@ public class RegistroAdultoMayor extends AppCompatActivity {
                 am.setNombre(nombreAM);
                 am.setApellido(apellidoAM);
                 am.setTelefono(numCelAM);
-                am.setCedula(cedulaAM);
                 am.setFechaNacimiento(fechaNacAM);
                 am.setContraseña(contraAM);
                 am.setObservaciones(observacionesAM);
-                databaseReference.child("PersonaEncargada").child(am.getUid()).setValue(am).addOnCompleteListener(new OnCompleteListener<Void>() {
+                databaseReference.child("AdultoMayor").child(am.getUid()).setValue(am).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-                            startActivity(new Intent(RegistroAdultoMayor.this, ProfileActitvity.class));
                             limpiarCajas();
-                            finish();
                         } else {
                             Toast.makeText(RegistroAdultoMayor.this, "No se pudo registrar los datos correctamente", Toast.LENGTH_SHORT).show();
                         }
@@ -247,5 +241,9 @@ public class RegistroAdultoMayor extends AppCompatActivity {
             registroLleno = false;
         }
         return registroLleno;
-    }}
+    }
+
+
+
+}
 

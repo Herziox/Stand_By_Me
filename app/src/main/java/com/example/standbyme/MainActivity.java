@@ -7,22 +7,25 @@ import android.os.Bundle;
 
 import android.view.View;
 
+import com.google.firebase.auth.FirebaseAuth;
 
 
 public class MainActivity extends AppCompatActivity {
 
+    FirebaseAuth mFirebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mFirebaseAuth = FirebaseAuth.getInstance();
 
     }
 
 
     //Botón Inicio Sesión
     public void InicioSesion(View view){
-        Intent inicioSesion = new Intent(this, SeleccionarUsuario.class);
+        Intent inicioSesion = new Intent(this, LoginActivity.class);
         startActivity(inicioSesion);
     }
 
@@ -32,8 +35,13 @@ public class MainActivity extends AppCompatActivity {
         startActivity(registrarse);
     }
 
-
-
-
-
+    //Para que no vuelva e esta pantalal cuando se inice session *IMPORTANTE*
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (mFirebaseAuth.getCurrentUser() != null){
+            startActivity(new Intent(MainActivity.this, ProfileActitvity.class));
+            finish();
+        }
+    }
 }
