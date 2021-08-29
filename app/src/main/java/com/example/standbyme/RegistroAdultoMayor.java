@@ -13,16 +13,19 @@ import android.widget.Toast;
 
 import com.example.standbyme.model.AdultoMayor;
 import com.google.firebase.FirebaseApp;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class RegistroAdultoMayor extends AppCompatActivity {
 
-    private List<AdultoMayor> listPerson = new ArrayList<AdultoMayor>();
-    ArrayAdapter<AdultoMayor> arrayAdapterPersona;
+    private List<AdultoMayor> listAdultoMayor = new ArrayList<AdultoMayor>();
+    ArrayAdapter<AdultoMayor> arrayAdapterAbuelitos;
 
     private EditText nomAM, appAM, cedulaAM, numtelfAM,  fechaNacimientoAM,psswordAM,rePpasswordAM, observacionesAMa;
     private ListView listV_AdultoMayor;
@@ -44,11 +47,35 @@ public class RegistroAdultoMayor extends AppCompatActivity {
         rePpasswordAM = (EditText) findViewById(R.id.textFieldRePasswordAM);
         observacionesAMa = (EditText) findViewById(R.id.textFielObservacionesAM);
 
-        listV_AdultoMayor = (ListView) findViewById(R.id.lv_datosAbuelitos);
-        
+        listV_AdultoMayor =  findViewById(R.id.lv_datosAbuelitos);
+
         inicializarFirebase();
 
+        listarDatos();
 
+
+    }
+
+    private void listarDatos() {
+        databaseReference.child("AdultoMayor");
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                listAdultoMayor.clear();
+                for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
+                    AdultoMayor am = childSnapshot.getValue(AdultoMayor.class);
+                    listAdultoMayor.add(am);
+
+                    arrayAdapterAbuelitos = new ArrayAdapter<AdultoMayor>(RegistroAdultoMayor.this, android.R.layout.simple_list_item_1, listAdultoMayor);
+                    listV_AdultoMayor.setAdapter(arrayAdapterAbuelitos);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 
     private void inicializarFirebase() {
