@@ -80,6 +80,6 @@ public class AdultoMayor {
 
     @Override
     public String toString() {
-        return nombre+" "+apellido+" - "+cedula+" - "+telefono+" - "+fechaNacimiento;
+        return nombre+" "+apellido+" - "+cedula;
     }
 }
