@@ -1,6 +1,7 @@
 package com.example.standbyme.model;
 
 public class AdultoMayor {
+
     private String uid;
     private String nombre;
     private String apellido;
@@ -37,14 +38,6 @@ public class AdultoMayor {
         this.apellido = apellido;
     }
 
-    public String getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
-    }
-
     public String getCedula() {
         return cedula;
     }
@@ -75,6 +68,14 @@ public class AdultoMayor {
 
     public void setObservaciones(String observaciones) {
         this.observaciones = observaciones;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
     }
 
     @Override

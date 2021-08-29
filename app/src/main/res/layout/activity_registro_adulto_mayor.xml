@@ -30,90 +30,91 @@
         tools:srcCompat="@drawable/adulto_mayor" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textFieldNombreAM"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Nombre">
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textFieldNombreAM"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
             />
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textFieldApellidoPE"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Apellido">
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textFieldApellidoAM"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
             />
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textFieldNumeroCedulaAM"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Numero de Cedula">
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textFieldNumeroCedulaAM"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="number"
             />
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textFieldNumeroTelefonoAM"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Numero de Telefono">
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textFieldNumeroTelefonoAM"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="phone"
             />
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textFieldFechaDeNacimientoAM"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Fecha de Nacimiento">
+        android:hint="Fecha de Nacimiento: dd/mm/aaaa Ejm: 28/05/1958">
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textFieldFechaDeNacimientoAM"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text"
             />
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textFieldPasswordAM"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:endIconMode="password_toggle"
         android:hint="Contraseña">
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textFieldPasswordAM"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
             />
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textFieldRePasswordAM"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:endIconMode="password_toggle"
         android:hint="Repetir Contraseña">
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textFieldRePasswordAM"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
             />
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textFielObservacionesAM"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="OBSERVACIONES">
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textFielObservacionesAM"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text"

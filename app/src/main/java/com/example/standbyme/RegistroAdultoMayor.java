@@ -12,6 +12,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.standbyme.model.AdultoMayor;
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -23,8 +24,8 @@ public class RegistroAdultoMayor extends AppCompatActivity {
     private List<AdultoMayor> listPerson = new ArrayList<AdultoMayor>();
     ArrayAdapter<AdultoMayor> arrayAdapterPersona;
 
-    EditText nomAM, appAM, cedulaAM, numtelfAM, passwordAM,rePpasswordAM, observacionesAM;
-    ListView listV_personas;
+    private EditText nomAM, appAM, cedulaAM, numtelfAM,  fechaNacimientoAM,psswordAM,rePpasswordAM, observacionesAMa;
+    private ListView listV_AdultoMayor;
 
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
@@ -33,6 +34,27 @@ public class RegistroAdultoMayor extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro_adulto_mayor);
+
+        nomAM = (EditText) findViewById(R.id.textFieldNombreAM);
+        appAM = (EditText) findViewById(R.id.textFieldApellidoAM);
+        cedulaAM = (EditText) findViewById(R.id.textFieldNumeroCedulaAM);
+        numtelfAM = (EditText) findViewById(R.id.textFieldNumeroTelefonoAM);
+        fechaNacimientoAM = (EditText) findViewById(R.id.textFieldFechaDeNacimientoAM);
+        psswordAM = (EditText) findViewById(R.id.textFieldPasswordAM);
+        rePpasswordAM = (EditText) findViewById(R.id.textFieldRePasswordAM);
+        observacionesAMa = (EditText) findViewById(R.id.textFielObservacionesAM);
+
+        listV_AdultoMayor = (ListView) findViewById(R.id.lv_datosAbuelitos);
+        
+        inicializarFirebase();
+
+
+    }
+
+    private void inicializarFirebase() {
+        FirebaseApp.initializeApp(this);
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase.getReference();
 
     }
 
@@ -44,9 +66,42 @@ public class RegistroAdultoMayor extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        String nombre = nomAM.getText().toString();
+        String apellido = appAM.getText().toString();
+        String numCedula = cedulaAM.getText().toString();
+        String numTelefono = numtelfAM.getText().toString();
+        String fechaNacimiento = fechaNacimientoAM.getText().toString();
+        String password = psswordAM.getText().toString();
+        String rePassword = rePpasswordAM.getText().toString();
+        String observaciones = observacionesAMa.getText().toString();
+
         switch (item.getItemId()){
             case R.id.icon_add:{
-                Toast.makeText(this, "Agregado", Toast.LENGTH_SHORT).show();
+
+                if (nombre.isEmpty() || apellido.isEmpty() || numCedula.isEmpty() || numTelefono.isEmpty()
+                        || fechaNacimiento.isEmpty() || password.isEmpty() || rePassword.isEmpty()){
+                    validacion();
+                }
+                else{
+                    if (password.equals(rePassword)){
+                        AdultoMayor am = new AdultoMayor();
+                        am.setUid(numCedula);
+                        am.setNombre(nombre);
+                        am.setApellido(apellido);
+                        am.setCedula(numCedula);
+                        am.setTelefono(numTelefono);
+                        am.setFechaNacimiento(fechaNacimiento);
+                        am.setContraseña(password);
+                        am.setObservaciones(observaciones);
+                        databaseReference.child("AdultoMayor").child(am.getUid()).setValue(am);
+                        Toast.makeText(this, "Agregado", Toast.LENGTH_SHORT).show();
+
+                    }else{
+                        rePpasswordAM.setError("Las contraseñas no coinciden");
+                    }
+                }
+
                 break;
             }
             case R.id.icon_save:{
@@ -60,4 +115,48 @@ public class RegistroAdultoMayor extends AppCompatActivity {
         }
         return true;
     }
+    private void limpiarCajas(){
+        nomAM.setText("");
+        appAM.setText("");
+        cedulaAM.setText("");
+        numtelfAM.setText("");
+        fechaNacimientoAM.setText("");
+        psswordAM.setText("");
+        rePpasswordAM.setText("");
+        observacionesAMa.setText("");
+    }
+
+    private void validacion() {
+        String nombre = nomAM.getText().toString();
+        String apellido = appAM.getText().toString();
+        String numCedula = cedulaAM.getText().toString();
+        String numTelefono = numtelfAM.getText().toString();
+        String fechaNacimiento = fechaNacimientoAM.getText().toString();
+        String password = psswordAM.getText().toString();
+        String rePassword = rePpasswordAM.getText().toString();
+
+        if (nombre.isEmpty()){
+            nomAM.setError("Requerido");
+        }
+        if (apellido.isEmpty()){
+            appAM.setError("Requerido");
+        }
+        if (numCedula.isEmpty()){
+            cedulaAM.setError("Requerido");
+        }
+        if (numTelefono.isEmpty()){
+            numtelfAM.setError("Requerido");
+        }
+        if (fechaNacimiento.isEmpty()){
+            fechaNacimientoAM.setError("Requerido");
+        }
+        if (password.isEmpty()){
+            psswordAM.setError("Requerido");
+        }
+        if (rePassword.isEmpty()){
+            rePpasswordAM.setError("Requerido");
+        }
+
+    }
+
 }
