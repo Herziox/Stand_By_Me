@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class RegistroResidencia extends AppCompatActivity {
 
@@ -37,6 +38,12 @@ public class RegistroResidencia extends AppCompatActivity {
         }
         if (logitud.length() == 0) {
             registroLleno = false;
+        }
+
+        if (registroLleno) {
+            Toast.makeText(this, "Residencia registrada", Toast.LENGTH_SHORT).show();
+        }else {
+            Toast.makeText(this, "Debe completar los campos", Toast.LENGTH_SHORT).show();
         }
 
 
