@@ -44,6 +44,7 @@
     <string name="lblMetros">Metros</string>
     <string name="lblCargaManual">Manual</string>
     <string name="lblCargarResidencia">Cargar datos de residencia de forma: </string>
+    <string name="title_activity_maps">Map</string>
 
 
 </resources>
