@@ -37,11 +37,10 @@
         android:id="@+id/linearLayout"
         android:layout_width="343dp"
         android:layout_height="185dp"
-        android:layout_marginTop="48dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnCargaAutomatica">
+        tools:layout_editor_absoluteY="218dp">
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -78,41 +77,15 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/btnCargaManual"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="@string/lblCargaManual"
+        android:id="@+id/btnAbrirMapa"
+        android:layout_width="242dp"
+        android:layout_height="50dp"
+        android:text="@string/lblAbrirMapa"
         app:backgroundTint="@color/Secundario"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.217"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lblCargarDatosResidencia" />
-
-    <Button
-        android:id="@+id/btnCargaAutomatica"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="@string/lblCargaAutomatica"
-        app:backgroundTint="@color/Secundario"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.834"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lblCargarDatosResidencia" />
-
-    <TextView
-        android:id="@+id/lblCargarDatosResidencia"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="@string/lblCargarResidencia"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.468"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        tools:layout_editor_absoluteY="120dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
