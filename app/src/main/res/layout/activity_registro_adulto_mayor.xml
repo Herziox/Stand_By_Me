@@ -8,6 +8,7 @@
     android:background="@color/colorPrimary"
     tools:context=".RegistroAdultoMayor">
 
+
     <TextView
         android:id="@+id/lblTituloPersonaEncargada"
         android:layout_width="wrap_content"
@@ -121,7 +122,6 @@
             />
     </com.google.android.material.textfield.TextInputLayout>
 
-
     <TextView
         android:layout_width="wrap_content"
         android:textSize="15dp"
@@ -134,5 +134,6 @@
         android:id="@+id/lv_datosAbuelitos"
         android:layout_width="match_parent"
         android:layout_height="69dp" />
+
 
 </LinearLayout>
