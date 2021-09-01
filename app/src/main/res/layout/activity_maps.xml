@@ -9,10 +9,11 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/btnMapa"
+        android:id="@+id/btnConfirmar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Abrir Mapa" />
+        android:text="Confirmar"
+        app:backgroundTint="@color/Secundario" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -23,7 +24,7 @@
             android:id="@+id/map"
             android:name="com.google.android.gms.maps.SupportMapFragment"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="410dp"
             android:layout_marginTop="100dp"
             tools:context=".MapsActivity" />
 
