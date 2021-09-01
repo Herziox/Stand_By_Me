@@ -47,20 +47,15 @@
             tools:ignore="RtlCompat" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <LinearLayout
+    <Button
+        android:id="@+id/btnLogin"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="bottom"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:background="@color/colorPrimary"
+        android:text="Iniciar Sesion"
+        android:textColor="@color/white" />
 
-        <Button
-            android:id="@+id/btnLogin"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="175dp"
-            android:background="@color/colorPrimary"
-            android:text="Iniciar Sesion"
-            android:textColor="@color/white" />
-    </LinearLayout>
+
 
 </LinearLayout>

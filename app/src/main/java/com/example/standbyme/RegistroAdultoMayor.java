@@ -186,6 +186,7 @@ public class RegistroAdultoMayor extends AppCompatActivity {
                 break;
             }
             case R.id.icon_residencia:{
+                startActivity(new Intent( this, ProfileActitvity.class));
                 break;
             }
             default:break;
