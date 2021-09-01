@@ -4,7 +4,9 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/src/sw/Stand_By_Me/app/src/main/res/layout/activity_maps.xml" value="0.20416666666666666" />
+        <entry key="..\:/src/sw/Stand_By_Me/app/src/main/res/layout/activity_profile_actitvity.xml" value="0.20416666666666666" />
         <entry key="..\:/src/sw/Stand_By_Me/app/src/main/res/layout/activity_registro_adulto_mayor.xml" value="0.20416666666666666" />
+        <entry key="..\:/src/sw/Stand_By_Me/app/src/main/res/layout/activity_registro_persona_encargada.xml" value="0.20416666666666666" />
         <entry key="..\:/src/sw/Stand_By_Me/app/src/main/res/layout/activity_registro_residencia.xml" value="0.22" />
       </map>
     </option>

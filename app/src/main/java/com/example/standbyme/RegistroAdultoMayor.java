@@ -200,6 +200,11 @@ public class RegistroAdultoMayor extends AppCompatActivity {
         observacionesAM.setText("");
     }
 
+    public void cargarResidencia(View view){
+        Intent siguiente = new Intent(this, MapsActivity.class);
+        startActivity(siguiente);
+    }
+
     private void validacion() {
         String nombre = nomAM.getText().toString();
         String apellido = appAM.getText().toString();
