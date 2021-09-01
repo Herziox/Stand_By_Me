@@ -1,13 +1,12 @@
 package com.example.standbyme;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-
 import android.view.View;
 
+
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthException;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -19,9 +18,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mFirebaseAuth = FirebaseAuth.getInstance();
-
     }
-
 
     //Botón Inicio Sesión
     public void InicioSesion(View view){
@@ -35,11 +32,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(registrarse);
     }
 
-    //Para que no vuelva e esta pantalal cuando se inice session *IMPORTANTE*
+    //Para que no vuelva e esta pantalla cuando se inice session *IMPORTANTE*
     @Override
     protected void onStart() {
         super.onStart();
-        if (mFirebaseAuth.getCurrentUser() != null){
+        if (mFirebaseAuth.getCurrentUser()!= null){
             startActivity(new Intent(MainActivity.this, ProfileActitvity.class));
             finish();
         }

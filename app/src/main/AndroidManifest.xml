@@ -4,6 +4,7 @@
     package="com.example.standbyme">
 
 
+
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
@@ -11,6 +12,7 @@
     -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -25,6 +27,7 @@
         android:theme="@style/Theme.StandByMe">
 
 
+
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -33,33 +36,44 @@
              sign the APK for publishing.
              You can define the keys for the debug and release targets in src/debug/ and src/release/.
         -->
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_maps_key" />
+        <!-- Meta-Data Henry
+          <meta-data
+              android:name="com.google.android.geo.API_KEY"
+              android:value="@string/google_maps_key" />
+        -->
+          <activity
+              android:name=".MapsActivity"
+              android:label="@string/title_activity_maps"></activity>
 
-        <activity
-            android:name=".MapsActivity"
-            android:label="@string/title_activity_maps"></activity>
 
-        <activity
-            android:name=".RegistroAdultoMayor"
-            android:exported="true" />
-        <activity
-            android:name=".LoginActivity"
-            android:exported="true" />
+          <meta-data
+              android:name="com.google.android.geo.API_KEY"
+              android:value="AIzaSyC4z36q5BmNvQDQEHynwt_Vh8I2A_B6lsc" />
+          <activity android:name=".registro_Localizacion"></activity>
 
-        <activity
-            android:name=".ProfileActitvity"
-            android:exported="true" />
-        <activity android:name=".SeleccionarUsuario" />
-        <activity android:name=".RegistroPersonaEncargada" />
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+          <activity
+              android:name=".RegistroAdultoMayor"
+              android:exported="true" />
+          <activity
+              android:name=".LoginActivity"
+              android:exported="true" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-    </application>
+          <activity
+              android:name=".ProfileActitvity"
+              android:exported="true" />
+          <activity android:name=".SeleccionarUsuario" />
+          <activity android:name=".RegistroPersonaEncargada" />
+          <activity android:name=".MainActivity">
+              <intent-filter>
+                  <action android:name="android.intent.action.MAIN" />
 
-</manifest>
+                  <category android:name="android.intent.category.LAUNCHER" />
+              </intent-filter>
+
+              <meta-data
+                  android:name="com.google.android.geo.API_KEY"
+                  android:value="AIzaSyC4z36q5BmNvQDQEHynwt_Vh8I2A_B6lsc" />
+          </activity>
+      </application>
+
+  </manifest>
