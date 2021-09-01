@@ -36,6 +36,14 @@ public class ProfileActitvity extends AppCompatActivity {
             }
         });
 
+         mMonitorearAM.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ProfileActitvity .this, registro_Localizacion.class));
+            }
+        });
+
+
         mButtonAdministrarAM.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
