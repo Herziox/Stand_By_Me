@@ -40,7 +40,11 @@
     <string name="lblNumeroCasa">Número</string>
     <string name="lblLatitud">Latitud</string>
     <string name="lblLongitud">Longitud</string>
-    <string name="lblCargaAutomatica">Cargar ubicación de forma automática</string>
+    <string name="lblCargaAutomatica">Automática</string>
+    <string name="lblMetros">Metros</string>
+    <string name="lblAbrirMapa">Abrir Mapa</string>
+    <string name="lblCargarResidencia">Cargar datos de residencia</string>
+    <string name="title_activity_maps">Map</string>
 
 
 </resources>
