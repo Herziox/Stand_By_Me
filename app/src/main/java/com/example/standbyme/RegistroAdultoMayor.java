@@ -185,6 +185,9 @@ public class RegistroAdultoMayor extends AppCompatActivity {
 
                 break;
             }
+            case R.id.icon_residencia:{
+                break;
+            }
             default:break;
         }
         return true;

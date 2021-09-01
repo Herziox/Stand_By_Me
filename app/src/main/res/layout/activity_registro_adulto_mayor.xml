@@ -133,6 +133,6 @@
     <ListView
         android:id="@+id/lv_datosAbuelitos"
         android:layout_width="match_parent"
-        android:layout_height="69dp" />
+        android:layout_height="129dp" />
 
 </LinearLayout>

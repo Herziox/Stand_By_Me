@@ -22,12 +22,12 @@ public class SeleccionarUsuario extends AppCompatActivity {
     //Seleccion Persona Encargada
 
     public void seleccionPersonaEncarda(View view){
-        Intent siguiente = new Intent(this, RegistroPersonaEncargada.class);
+        Intent siguiente = new Intent(this, ProfileActitvity.class);
         startActivity(siguiente);
     }
 
     public void seleccionAdultoMayor(View view){
-        Intent siguiente = new Intent(this, RegistroAdultoMayor.class);
+        Intent siguiente = new Intent(this, ProfileActitvity.class);
         startActivity(siguiente);
     }
 }

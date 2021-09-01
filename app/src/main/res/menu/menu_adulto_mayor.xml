@@ -16,5 +16,10 @@
         android:title="Edit Done"
         app:showAsAction="always" />
 
+    <item android:id="@+id/icon_residencia"
+        android:icon="@drawable/ic_residencia"
+        android:title="Edit Done"
+        app:showAsAction="always" />
+
 
 </menu>
