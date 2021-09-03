@@ -17,7 +17,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText mEditTextEmail, mEditTextPassword;
-    private Button mButtonLogin;
+    private Button mButtonLogin, mButtonOlvidadoPassword;
 
     private String email = "";
     private String password = "";
@@ -34,6 +34,7 @@ public class LoginActivity extends AppCompatActivity {
         mEditTextEmail = (EditText) findViewById(R.id.editTextEmail);
         mEditTextPassword = (EditText) findViewById(R.id.editTextPassword);
         mButtonLogin = (Button) findViewById(R.id.btnLogin);
+        mButtonOlvidadoPassword = (Button) findViewById(R.id.btnOlvidarPassword);
 
         mButtonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,6 +46,13 @@ public class LoginActivity extends AppCompatActivity {
                 }else{
                     Toast.makeText(LoginActivity.this, "Complete los campos", Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
+
+        mButtonOlvidadoPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(LoginActivity.this, ResetPassword.class));
             }
         });
 

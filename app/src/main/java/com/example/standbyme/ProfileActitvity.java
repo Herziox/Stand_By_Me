@@ -23,8 +23,8 @@ public class ProfileActitvity extends AppCompatActivity {
 
         mButtonSignOut = (Button) findViewById(R.id.btnsignout);
         mButtonAdministrarAM = (Button) findViewById(R.id.btnAdministrarAdultoMayor);
-        mMonitorearAM = (Button) findViewById(R.id.btnMonitorearAdultoMayor);//Falta Implentar
-        mButtonAdministrarCuenta = (Button) findViewById(R.id.btnAdministrarCuenta);//FaltaImplenetar
+        mMonitorearAM = (Button) findViewById(R.id.btnMonitorearAdultoMayor);
+        mButtonAdministrarCuenta = (Button) findViewById(R.id.btnAdministrarCuenta);
 
 
         mButtonSignOut.setOnClickListener(new View.OnClickListener() {
@@ -48,6 +48,14 @@ public class ProfileActitvity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(ProfileActitvity.this, RegistroAdultoMayor.class));
+            }
+        });
+
+        mButtonAdministrarCuenta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(ProfileActitvity.this, AdminPE.class));
+                finish();
             }
         });
 

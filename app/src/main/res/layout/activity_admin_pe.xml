@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorPrimary"
+    tools:context=".AdminPE">
+    <TextView
+        android:id="@+id/lblTituloAdminPE"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:hint="Adulto Mayor"
+        android:textColor="@color/black"
+        android:textSize="24sp" />
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nombre">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/textFieldNombreAPE"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:layout_marginTop="5dp"
+                android:inputType="textPersonName" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Apellido">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/textFieldApellidoAPE"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:inputType="textPersonName" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="NumeroDeCedula">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/textFieldNumCedulaAPE"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:inputType="number" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Número de Celular">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/textFieldNumCelularAPE"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:inputType="phone" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Correo Electrónico">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/textFieldEmailAPE"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:enabled="false"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:inputType="textEmailAddress" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/btnActualizarPE"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:text="Actualizar"
+        app:backgroundTint="@color/Secundario" />
+    <Button
+        android:id="@+id/btnRestablecerPasswordPE"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:text="Restablacer/Cambiar Contraseña"
+        app:backgroundTint="@color/Secundario" />
+    <Button
+        android:id="@+id/btnSalirPE"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:text="Salir"
+        app:backgroundTint="@color/Secundario" />
+</LinearLayout>
