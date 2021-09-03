@@ -10,8 +10,17 @@ public class AdultoMayor {
     private String fechaNacimiento;
     private String contraseña;
     private String observaciones;
+    private String pkIDPersonaEncargada;
 
     public AdultoMayor() {
+    }
+
+    public String getPkIDPersonaEncargada() {
+        return pkIDPersonaEncargada;
+    }
+
+    public void setPkIDPersonaEncargada(String pkIDPersonaEncargada) {
+        this.pkIDPersonaEncargada = pkIDPersonaEncargada;
     }
 
     public String getUid() {

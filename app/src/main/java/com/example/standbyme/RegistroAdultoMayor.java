@@ -18,6 +18,7 @@ import com.example.standbyme.model.AdultoMayor;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -36,6 +37,7 @@ public class RegistroAdultoMayor extends AppCompatActivity {
     private EditText nomAM, appAM, cedulaAM, numtelfAM,  fechaNacimientoAM,psswordAM,rePpasswordAM, observacionesAM;
     private ListView listV_AdultoMayor;
 
+    private FirebaseAuth mFirebaseAuth;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
 
@@ -105,6 +107,7 @@ public class RegistroAdultoMayor extends AppCompatActivity {
         FirebaseApp.initializeApp(this);
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference();
+        mFirebaseAuth = FirebaseAuth.getInstance();
 
     }
 
@@ -135,6 +138,7 @@ public class RegistroAdultoMayor extends AppCompatActivity {
                 }
                 else{
                     if (password.equals(rePassword)){
+                        String idPE = mFirebaseAuth.getCurrentUser().getUid();
                         AdultoMayor am = new AdultoMayor();
                         am.setUid(numCedula);
                         am.setNombre(nombre);
@@ -144,6 +148,7 @@ public class RegistroAdultoMayor extends AppCompatActivity {
                         am.setFechaNacimiento(fechaNacimiento);
                         am.setContraseña(password);
                         am.setObservaciones(observaciones);
+                        am.setPkIDPersonaEncargada(idPE);
                         databaseReference.child("AdultoMayor1").child(am.getUid()).setValue(am);
                         Toast.makeText(RegistroAdultoMayor.this, "Agregado", Toast.LENGTH_SHORT).show();
                         limpiarCajas();
@@ -158,6 +163,7 @@ public class RegistroAdultoMayor extends AppCompatActivity {
                 if (listAdultoMayor.isEmpty()){
                     startActivity(new Intent( this, RegistroAdultoMayor.class));
                 }else{
+                    String idPE = mFirebaseAuth.getCurrentUser().getUid();
                     AdultoMayor am = new AdultoMayor();
                     am.setUid(adultoMayorSelected.getUid());
                     am.setNombre(nombre);
@@ -167,6 +173,7 @@ public class RegistroAdultoMayor extends AppCompatActivity {
                     am.setFechaNacimiento(fechaNacimiento);
                     am.setContraseña(password);
                     am.setObservaciones(observaciones);
+                    am.setPkIDPersonaEncargada(idPE);
                     databaseReference.child("AdultoMayor1").child(am.getUid()).setValue(am);
                     Toast.makeText(this, "Actualizado", Toast.LENGTH_SHORT).show();
                     limpiarCajas();
