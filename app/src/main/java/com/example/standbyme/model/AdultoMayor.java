@@ -11,6 +11,9 @@ public class AdultoMayor {
     private String contraseña;
     private String observaciones;
     private String pkIDPersonaEncargada;
+    private String rangoDeCirculacion;
+    private String latitud;
+    private String longitud;
 
     public AdultoMayor() {
     }
@@ -85,6 +88,30 @@ public class AdultoMayor {
 
     public void setTelefono(String telefono) {
         this.telefono = telefono;
+    }
+
+    public String getRangoDeCirculacion() {
+        return rangoDeCirculacion;
+    }
+
+    public void setRangoDeCirculacion(String rangoDeCirculacion) {
+        this.rangoDeCirculacion = rangoDeCirculacion;
+    }
+
+    public String getLatitud() {
+        return latitud;
+    }
+
+    public void setLatitud(String latitud) {
+        this.latitud = latitud;
+    }
+
+    public String getLongitud() {
+        return longitud;
+    }
+
+    public void setLongitud(String longitud) {
+        this.longitud = longitud;
     }
 
     @Override

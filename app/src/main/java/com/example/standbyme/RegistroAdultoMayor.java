@@ -15,8 +15,6 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.standbyme.model.AdultoMayor;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -27,14 +25,13 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 public class RegistroAdultoMayor extends AppCompatActivity {
 
     private List<AdultoMayor> listAdultoMayor = new ArrayList<AdultoMayor>();
     ArrayAdapter<AdultoMayor> arrayAdapterAbuelitos;
 
-    private EditText nomAM, appAM, cedulaAM, numtelfAM,  fechaNacimientoAM,psswordAM,rePpasswordAM, observacionesAM;
+    private EditText nomAM, appAM, cedulaAM, numtelfAM,  fechaNacimientoAM,psswordAM,rePpasswordAM, observacionesAM, rangoAM, latitudaAM, longitudAM;
     private ListView listV_AdultoMayor;
 
     private FirebaseAuth mFirebaseAuth;
@@ -56,6 +53,9 @@ public class RegistroAdultoMayor extends AppCompatActivity {
         psswordAM = (EditText) findViewById(R.id.textFieldPasswordAM);
         rePpasswordAM = (EditText) findViewById(R.id.textFieldRePasswordAM);
         observacionesAM = (EditText) findViewById(R.id.textFielObservacionesAM);
+        rangoAM = (EditText) findViewById(R.id.txtMetros);
+        latitudaAM = (EditText) findViewById(R.id.textViewLatitud);
+        longitudAM = (EditText) findViewById(R.id.textViewLongitud);
 
         listV_AdultoMayor =  findViewById(R.id.lv_datosAbuelitos);
 
@@ -75,6 +75,9 @@ public class RegistroAdultoMayor extends AppCompatActivity {
                 psswordAM.setText(adultoMayorSelected.getContraseña());
                 rePpasswordAM.setText(adultoMayorSelected.getContraseña());
                 observacionesAM.setText(adultoMayorSelected.getObservaciones());
+                rangoAM.setText(adultoMayorSelected.getRangoDeCirculacion());
+                latitudaAM.setText(adultoMayorSelected.getLatitud());
+                longitudAM.setText(adultoMayorSelected.getLongitud());
             }
         });
 
@@ -128,6 +131,9 @@ public class RegistroAdultoMayor extends AppCompatActivity {
         String password = psswordAM.getText().toString();
         String rePassword = rePpasswordAM.getText().toString();
         String observaciones = observacionesAM.getText().toString();
+        String rango = rangoAM.getText().toString();
+        String latitud = latitudaAM.getText().toString();
+        String longitud = longitudAM.getText().toString();
 
         switch (item.getItemId()){
             case R.id.icon_add:{
@@ -149,6 +155,9 @@ public class RegistroAdultoMayor extends AppCompatActivity {
                         am.setContraseña(password);
                         am.setObservaciones(observaciones);
                         am.setPkIDPersonaEncargada(idPE);
+                        am.setRangoDeCirculacion(rango);
+                        am.setLongitud(longitud);
+                        am.setLatitud(latitud);
                         databaseReference.child("AdultoMayor1").child(am.getUid()).setValue(am);
                         Toast.makeText(RegistroAdultoMayor.this, "Agregado", Toast.LENGTH_SHORT).show();
                         limpiarCajas();
@@ -174,6 +183,9 @@ public class RegistroAdultoMayor extends AppCompatActivity {
                     am.setContraseña(password);
                     am.setObservaciones(observaciones);
                     am.setPkIDPersonaEncargada(idPE);
+                    am.setRangoDeCirculacion(rango);
+                    am.setLongitud(longitud);
+                    am.setLatitud(latitud);
                     databaseReference.child("AdultoMayor1").child(am.getUid()).setValue(am);
                     Toast.makeText(this, "Actualizado", Toast.LENGTH_SHORT).show();
                     limpiarCajas();
