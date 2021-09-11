@@ -176,6 +176,7 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/lblLongitud" />
                 </com.google.android.material.textfield.TextInputLayout>
+
             <Button
                 android:id="@+id/btnCargarResidencia"
                 style="@style/Widget.AppCompat.Button"
@@ -183,8 +184,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:onClick="cargarResidencia"
-                android:textColor="@color/white"
                 android:text="@string/lblAbrirMapa"
+                android:textColor="@color/white"
                 app:backgroundTint="@color/Secundario" />
         </LinearLayout>
     </ScrollView>

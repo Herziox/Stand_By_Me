@@ -11,12 +11,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.standbyme.model.AdultoMayor;
+import com.example.standbyme.model.CoordenadasGPS;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -35,6 +37,7 @@ public class RegistroAdultoMayor extends AppCompatActivity {
 
     private EditText nomAM, appAM, cedulaAM, numtelfAM,  fechaNacimientoAM,psswordAM,rePpasswordAM, observacionesAM, rangoAM, latitudaAM, longitudAM ;
     private ListView listV_AdultoMayor;
+    private Button abrirMapaButton;
 
     private FirebaseAuth mFirebaseAuth;
     FirebaseDatabase firebaseDatabase;
@@ -71,7 +74,6 @@ public class RegistroAdultoMayor extends AppCompatActivity {
                 switch (view.getId()) {
                     case R.id.textFieldFechaDeNacimientoAM:
                         showDatePickerDialog();
-                        break;
                 }
             }
         });
@@ -95,6 +97,35 @@ public class RegistroAdultoMayor extends AppCompatActivity {
         });
 
 
+    }
+
+    private void setearCoordenadasGPS() {
+        CoordenadasGPS gps= new CoordenadasGPS();
+        databaseReference.child("CoordenadasGPS").child("latitud").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                String latitud = snapshot.getValue().toString();
+                gps.setLatitud(latitud);
+                latitudaAM.setText(gps.getLatitud());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+        databaseReference.child("CoordenadasGPS").child("longuitud").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                String longuitud = snapshot.getValue().toString();
+                gps.setLonguitud(longuitud);
+                longitudAM.setText(gps.getLonguitud());
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 
     private void showDatePickerDialog() {
@@ -138,7 +169,6 @@ public class RegistroAdultoMayor extends AppCompatActivity {
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference();
         mFirebaseAuth = FirebaseAuth.getInstance();
-
     }
 
     @Override
@@ -164,40 +194,32 @@ public class RegistroAdultoMayor extends AppCompatActivity {
 
         switch (item.getItemId()){
             case R.id.icon_add:{
-
-                if (nombre.isEmpty() || apellido.isEmpty() || numCedula.isEmpty() || numTelefono.isEmpty()
-                        || fechaNacimiento.isEmpty() || password.isEmpty() || rePassword.isEmpty()){
-                    validacionVacios();
+                if (validacion() && !validacionVacios()){
+                    String idPE = mFirebaseAuth.getCurrentUser().getUid();
+                    AdultoMayor am = new AdultoMayor();
+                    am.setUid(numCedula);
+                    am.setNombre(nombre);
+                    am.setApellido(apellido);
+                    am.setCedula(numCedula);
+                    am.setTelefono(numTelefono);
+                    am.setFechaNacimiento(fechaNacimiento);
+                    am.setContraseña(password);
+                    am.setObservaciones(observaciones);
+                    am.setPkIDPersonaEncargada(idPE);
+                    am.setRangoDeCirculacion(rango);
+                    am.setLongitud(latitud);
+                    am.setLatitud(longitud);
+                    databaseReference.child("AdultoMayor1").child(am.getUid()).setValue(am);
+                    Toast.makeText(RegistroAdultoMayor.this, "Agregado", Toast.LENGTH_SHORT).show();
+                    limpiarCajas();
                 }
-                else{
-                    if (validacion()){
-                        String idPE = mFirebaseAuth.getCurrentUser().getUid();
-                        AdultoMayor am = new AdultoMayor();
-                        am.setUid(numCedula);
-                        am.setNombre(nombre);
-                        am.setApellido(apellido);
-                        am.setCedula(numCedula);
-                        am.setTelefono(numTelefono);
-                        am.setFechaNacimiento(fechaNacimiento);
-                        am.setContraseña(password);
-                        am.setObservaciones(observaciones);
-                        am.setPkIDPersonaEncargada(idPE);
-                        am.setRangoDeCirculacion(rango);
-                        am.setLongitud(longitud);
-                        am.setLatitud(latitud);
-                        databaseReference.child("AdultoMayor1").child(am.getUid()).setValue(am);
-                        Toast.makeText(RegistroAdultoMayor.this, "Agregado", Toast.LENGTH_SHORT).show();
-                        limpiarCajas();
-                    }
-                }
-
                 break;
             }
             case R.id.icon_save:{
                 if (listAdultoMayor.isEmpty()){
                     startActivity(new Intent( this, RegistroAdultoMayor.class));
                 }else{
-                    if (validacion()){
+                    if (validacion() && !validacionVacios()){
                         String idPE = mFirebaseAuth.getCurrentUser().getUid();
                         AdultoMayor am = new AdultoMayor();
                         am.setUid(adultoMayorSelected.getUid());
@@ -227,6 +249,7 @@ public class RegistroAdultoMayor extends AppCompatActivity {
                     am.setUid(adultoMayorSelected.getUid());
                     databaseReference.child("AdultoMayor1").child(am.getUid()).removeValue();
                     Toast.makeText(this, "Eliminado", Toast.LENGTH_SHORT).show();
+                    limpiarCajas();
                 }
 
                 break;
@@ -248,14 +271,19 @@ public class RegistroAdultoMayor extends AppCompatActivity {
         psswordAM.setText("");
         rePpasswordAM.setText("");
         observacionesAM.setText("");
+        rangoAM.setText("");
+        latitudaAM.setText("");
+        longitudAM.setText("");
     }
 
     public void cargarResidencia(View view){
         Intent siguiente = new Intent(this, MapsActivity.class);
         startActivity(siguiente);
+        setearCoordenadasGPS();
     }
 
-    private void validacionVacios() {
+    private boolean validacionVacios() {
+        boolean estaVacio = false;
         String nombre = nomAM.getText().toString();
         String apellido = appAM.getText().toString();
         String numCedula = cedulaAM.getText().toString();
@@ -263,36 +291,55 @@ public class RegistroAdultoMayor extends AppCompatActivity {
         String fechaNacimiento = fechaNacimientoAM.getText().toString();
         String password = psswordAM.getText().toString();
         String rePassword = rePpasswordAM.getText().toString();
+        String rango = rangoAM.getText().toString();
+        String latitud = latitudaAM.getText().toString();
+        String longitud = longitudAM.getText().toString();
 
         if (nombre.isEmpty()){
             nomAM.setError("Requerido");
+            estaVacio = true;
         }
         if (apellido.isEmpty()){
             appAM.setError("Requerido");
+            estaVacio = true;
         }
         if (numCedula.isEmpty()){
             cedulaAM.setError("Requerido");
+            estaVacio = true;
         }
         if (numTelefono.isEmpty()){
             numtelfAM.setError("Requerido");
+            estaVacio = true;
         }
         if (fechaNacimiento.isEmpty()){
             fechaNacimientoAM.setError("Requerido");
+            estaVacio = true;
         }
         if (password.isEmpty()){
             psswordAM.setError("Requerido");
+            estaVacio = true;
         }
         if (rePassword.isEmpty()){
             rePpasswordAM.setError("Requerido");
+            estaVacio = true;
         }
+        if (rango.isEmpty()){
+            rangoAM.setError("Requerido");
+            estaVacio = true;
+        }
+        if (latitud.isEmpty()){
+            latitudaAM.setError("Requerido");
+            estaVacio = true;
+        }
+        if (longitud.isEmpty()){
+            longitudAM.setError("Requerido");
+            estaVacio = true;
+        }
+        return estaVacio;
     }
     private boolean validacion(){
-
-        String nombre = nomAM.getText().toString();
-        String apellido = appAM.getText().toString();
         String numCedula = cedulaAM.getText().toString();
         String numTelefono = numtelfAM.getText().toString();
-        String fechaNacimiento = fechaNacimientoAM.getText().toString();
         String password = psswordAM.getText().toString();
         String rePassword = rePpasswordAM.getText().toString();
         if (isEcuadorianDocumentValid(numCedula) == false){
