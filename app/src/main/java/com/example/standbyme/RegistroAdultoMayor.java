@@ -197,23 +197,25 @@ public class RegistroAdultoMayor extends AppCompatActivity {
                 if (listAdultoMayor.isEmpty()){
                     startActivity(new Intent( this, RegistroAdultoMayor.class));
                 }else{
-                    String idPE = mFirebaseAuth.getCurrentUser().getUid();
-                    AdultoMayor am = new AdultoMayor();
-                    am.setUid(adultoMayorSelected.getUid());
-                    am.setNombre(nombre);
-                    am.setApellido(apellido);
-                    am.setTelefono(numTelefono);
-                    am.setCedula(numCedula);
-                    am.setFechaNacimiento(fechaNacimiento);
-                    am.setContraseña(password);
-                    am.setObservaciones(observaciones);
-                    am.setPkIDPersonaEncargada(idPE);
-                    am.setRangoDeCirculacion(rango);
-                    am.setLongitud(longitud);
-                    am.setLatitud(latitud);
-                    databaseReference.child("AdultoMayor1").child(am.getUid()).setValue(am);
-                    Toast.makeText(this, "Actualizado", Toast.LENGTH_SHORT).show();
-                    limpiarCajas();
+                    if (validacion()){
+                        String idPE = mFirebaseAuth.getCurrentUser().getUid();
+                        AdultoMayor am = new AdultoMayor();
+                        am.setUid(adultoMayorSelected.getUid());
+                        am.setNombre(nombre);
+                        am.setApellido(apellido);
+                        am.setTelefono(numTelefono);
+                        am.setCedula(numCedula);
+                        am.setFechaNacimiento(fechaNacimiento);
+                        am.setContraseña(password);
+                        am.setObservaciones(observaciones);
+                        am.setPkIDPersonaEncargada(idPE);
+                        am.setRangoDeCirculacion(rango);
+                        am.setLongitud(longitud);
+                        am.setLatitud(latitud);
+                        databaseReference.child("AdultoMayor1").child(am.getUid()).setValue(am);
+                        Toast.makeText(this, "Actualizado", Toast.LENGTH_SHORT).show();
+                        limpiarCajas();
+                    }
                 }
                 break;
             }
