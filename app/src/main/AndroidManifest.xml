@@ -3,20 +3,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.standbyme">
 
-
-
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
          location permissions for the "MyLocation" functionality.
     -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-
-
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+
 
     <application
         android:allowBackup="true"
@@ -25,9 +23,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.StandByMe">
-
-
-
+        <receiver
+            android:name=".GeofenceBroadcastReceiver"
+            android:enabled="true"
+            android:exported="true"></receiver>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -36,44 +35,43 @@
              sign the APK for publishing.
              You can define the keys for the debug and release targets in src/debug/ and src/release/.
         -->
-        <!-- Meta-Data Henry
+        <!--
+ Meta-Data Henry
           <meta-data
               android:name="com.google.android.geo.API_KEY"
               android:value="@string/google_maps_key" />
         -->
-          <activity
-              android:name=".MapsActivity"
-              android:label="@string/title_activity_maps"></activity>
+        <activity
+            android:name=".MapsActivity"
+            android:label="@string/title_activity_maps" />
 
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyC4z36q5BmNvQDQEHynwt_Vh8I2A_B6lsc" />
 
-          <meta-data
-              android:name="com.google.android.geo.API_KEY"
-              android:value="AIzaSyC4z36q5BmNvQDQEHynwt_Vh8I2A_B6lsc" />
-          <activity android:name=".registro_Localizacion"></activity>
+        <activity android:name=".registro_Localizacion" />
+        <activity
+            android:name=".RegistroAdultoMayor"
+            android:exported="true" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ProfileActitvity"
+            android:exported="true" />
+        <activity android:name=".SeleccionarUsuario" />
+        <activity android:name=".RegistroPersonaEncargada" />
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-          <activity
-              android:name=".RegistroAdultoMayor"
-              android:exported="true" />
-          <activity
-              android:name=".LoginActivity"
-              android:exported="true" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
 
-          <activity
-              android:name=".ProfileActitvity"
-              android:exported="true" />
-          <activity android:name=".SeleccionarUsuario" />
-          <activity android:name=".RegistroPersonaEncargada" />
-          <activity android:name=".MainActivity">
-              <intent-filter>
-                  <action android:name="android.intent.action.MAIN" />
+            <meta-data
+                android:name="com.google.android.geo.API_KEY"
+                android:value="AIzaSyC4z36q5BmNvQDQEHynwt_Vh8I2A_B6lsc" />
+        </activity>
+    </application>
 
-                  <category android:name="android.intent.category.LAUNCHER" />
-              </intent-filter>
-
-              <meta-data
-                  android:name="com.google.android.geo.API_KEY"
-                  android:value="AIzaSyC4z36q5BmNvQDQEHynwt_Vh8I2A_B6lsc" />
-          </activity>
-      </application>
-
-  </manifest>
+</manifest>
