@@ -15,20 +15,34 @@
         android:text="Confirmar"
         app:backgroundTint="@color/Secundario" />
 
-    <LinearLayout
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="607dp"
         android:orientation="horizontal">
 
+
         <fragment
+
             android:id="@+id/map"
             android:name="com.google.android.gms.maps.SupportMapFragment"
             android:layout_width="match_parent"
-            android:layout_height="410dp"
+            android:layout_height="510dp"
             android:layout_marginTop="100dp"
             tools:context=".MapsActivity" />
 
-    </LinearLayout>
+        <SearchView
+            android:id="@+id/sv_location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="5dp"
+            android:iconifiedByDefault="false"
+            android:queryHint="Search..."
+            android:layout_margin="10dp"
+            android:background="@drawable/bg_round"
+            />
+
+    </RelativeLayout>
 
 
 </LinearLayout>
