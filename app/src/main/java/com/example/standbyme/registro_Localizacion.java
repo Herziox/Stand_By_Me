@@ -53,9 +53,9 @@ import java.util.List;
 public class registro_Localizacion extends FragmentActivity implements OnMapReadyCallback{
     private static final String TAG = "registro_Localizacion";
     private GoogleMap mMap;
-    SupportMapFragment mapFragment;
-    FusedLocationProviderClient client; // ubicación actual 15-09-2021
-    SearchView searchView;
+    private SupportMapFragment mapFragment;
+    private SearchView searchView;
+    private FusedLocationProviderClient client; // ubicación actual 15-09-2021
     private LocationManager ubicacion;
     private GeofencingClient geofencingClient;
     private GeoferenceHelper geoferenceHelper;
@@ -72,19 +72,6 @@ public class registro_Localizacion extends FragmentActivity implements OnMapRead
         //Inicializar mapFragment
         mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
-        //Inicialiar fused Location
-        client = LocationServices.getFusedLocationProviderClient(this);
-
-        //Revisar permisos
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) ==
-                PackageManager.PERMISSION_GRANTED) {
-            getCurrentLocation();
-        }else{
-            //Cuando el permiso denegado
-            ActivityCompat.requestPermissions(registro_Localizacion.this,
-                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION},44);
-        }
-
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -112,6 +99,23 @@ public class registro_Localizacion extends FragmentActivity implements OnMapRead
                 return false;
             }
         });
+
+        /*
+        * ********************* INICIO DE UBICACIÓN ACTUAL ******************
+        * */
+
+        //Inicialiar fused Location
+        client = LocationServices.getFusedLocationProviderClient(this);
+
+        //Revisar permisos
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) ==
+                PackageManager.PERMISSION_GRANTED) {
+            getCurrentLocation();
+        }else{
+            //Cuando el permiso denegado
+            ActivityCompat.requestPermissions(registro_Localizacion.this,
+                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION},44);
+        }
 
         mapFragment.getMapAsync(this);
         geofencingClient = LocationServices.getGeofencingClient(this);
@@ -171,7 +175,19 @@ public class registro_Localizacion extends FragmentActivity implements OnMapRead
 
     @Override
     public void onMapReady(@NonNull @NotNull GoogleMap googleMap) {
-
+        mMap = googleMap;
+        mMap.getUiSettings().setMyLocationButtonEnabled(true);
+        mMap.getUiSettings().setZoomControlsEnabled(true);
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            return;
+        }
+        mMap.setMyLocationEnabled(true);
+        // Add a marker in Sydney and move the camera
+        LatLng eiffel = new LatLng(48.8589, 2.29365);
+        mMap.addMarker(new MarkerOptions()
+                .position(eiffel));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(eiffel, 16));
+        //mMap.setOnMapLongClickListener(this);
     }
 /*
     private void enableUserLocation() {
