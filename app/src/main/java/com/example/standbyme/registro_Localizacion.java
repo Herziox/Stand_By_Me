@@ -9,6 +9,7 @@ import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
@@ -22,6 +23,8 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.Circle;
+import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -88,6 +91,20 @@ public class registro_Localizacion extends AppCompatActivity implements OnMapRea
                 startActivity(intent);
             }
         });
+        //Añadir circulo
+        LatLng center = new LatLng(markerPosition.getPosition().latitude, markerPosition.getPosition().longitude);
+        int radius = 40;
+        CircleOptions circleOptions = new CircleOptions()
+                .center(center)
+                .radius(radius)
+                .strokeColor(Color.parseColor("#0D47A1"))
+                .strokeWidth(4)
+                .fillColor(Color.argb(32, 33, 150, 243));
+        // Añadir círculo
+        Circle circle = mMap.addCircle(circleOptions);
+        //(Opcional) Actualiza el objetivo de la cámara:
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(center, 17));
+
 
     }
 
