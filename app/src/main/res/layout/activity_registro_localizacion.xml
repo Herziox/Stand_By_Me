@@ -5,25 +5,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/colorPrimary"
     tools:context=".registro_Localizacion">
 
     <fragment
         android:id="@+id/map"
         android:name="com.google.android.gms.maps.SupportMapFragment"
-        android:layout_width="385dp"
+        android:layout_width="match_parent"
         android:layout_height="537dp"
         tools:context=".registro_Localizacion" />
-
     <TextView
-        android:id="@+id/textViewLatitud"
+        android:id="@+id/textViewIndicacionesRegistroLocalizacion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView" />
-
-    <TextView
-        android:id="@+id/textViewLongitud"
+        android:text="Para registar la localicación mueve el localizador y haz click en el marcador para confirmar " />
+   <Button
+        android:id="@+id/btnConfirmar_registro_localizacion"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:layout_height="50dp"
+        android:text="Confirmar"
+        app:backgroundTint="@color/colorPrimaryDark"
+       android:textColor="@color/white"/>
+
+
 
 </LinearLayout>

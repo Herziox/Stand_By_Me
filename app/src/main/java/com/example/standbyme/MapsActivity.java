@@ -85,7 +85,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             mMap.addMarker(new MarkerOptions().position(sydney).title("Ubicación Actual"));
             mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
         }
-
+/*
         confirmarButton = (Button)findViewById(R.id.btnConfirmar);
         inicializarFirebase();
         confirmarButton.setOnClickListener(new View.OnClickListener() {
@@ -97,7 +97,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 databaseReference.child("CoordenadasGPS").setValue(gps);
                 finish();
             }
-        });
+        });*/
     }
     private void inicializarFirebase() {
         FirebaseApp.initializeApp(this);

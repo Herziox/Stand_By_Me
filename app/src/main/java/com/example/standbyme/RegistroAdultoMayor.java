@@ -68,6 +68,14 @@ public class RegistroAdultoMayor extends AppCompatActivity {
 
         listarDatos();
 
+        // Extraer lat. y lng.
+        Intent intent = getIntent();
+        String latitud = Double.toString(intent.getDoubleExtra(registro_Localizacion.EXTRA_LATITUD, 0));
+        String longuitud = Double.toString(intent.getDoubleExtra(registro_Localizacion.EXTRA_LONGITUD, 0));
+        //se setea
+        latitudaAM.setText(latitud);
+        longitudAM.setText(longuitud);
+
         fechaNacimientoAM.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -98,34 +106,9 @@ public class RegistroAdultoMayor extends AppCompatActivity {
 
 
     }
-
-    private void setearCoordenadasGPS() {
-        CoordenadasGPS gps= new CoordenadasGPS();
-        databaseReference.child("CoordenadasGPS").child("latitud").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                String latitud = snapshot.getValue().toString();
-                gps.setLatitud(latitud);
-                latitudaAM.setText(gps.getLatitud());
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-        databaseReference.child("CoordenadasGPS").child("longuitud").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                String longuitud = snapshot.getValue().toString();
-                gps.setLonguitud(longuitud);
-                longitudAM.setText(gps.getLonguitud());
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return super.onSupportNavigateUp();
     }
 
     private void showDatePickerDialog() {
@@ -277,9 +260,9 @@ public class RegistroAdultoMayor extends AppCompatActivity {
     }
 
     public void cargarResidencia(View view){
-        Intent siguiente = new Intent(this, MapsActivity.class);
+        Intent siguiente = new Intent(this, registro_Localizacion.class);
         startActivity(siguiente);
-        setearCoordenadasGPS();
+        //setearCoordenadasGPS();
     }
 
     private boolean validacionVacios() {
