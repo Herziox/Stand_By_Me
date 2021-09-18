@@ -46,5 +46,11 @@
     <string name="lblCargarResidencia">Cargar datos de residencia</string>
     <string name="title_activity_maps">Map</string>
 
+    <!-- Pantalla Adulto Mayor-->
+    <string name="lblEstasSiendoCuidado">Estás siendo cuidado por</string>
+    <string name="lblProvicional">Persona Encargada</string>
+    <string name="lblSalir">Salir</string>
+
+
 
 </resources>

@@ -27,7 +27,7 @@ public class SeleccionarUsuario extends AppCompatActivity {
     }
 
     public void seleccionAdultoMayor(View view){
-        Intent siguiente = new Intent(this, ProfileActitvity.class);
+        Intent siguiente = new Intent(this, PantallaAdutoMayor.class);
         startActivity(siguiente);
     }
 }

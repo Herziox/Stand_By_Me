@@ -21,6 +21,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.StandByMe">
         <activity
+            android:name=".PantallaAdutoMayor"
+            android:exported="true" />
+        <activity
             android:name=".ResetPassword"
             android:exported="true" />
         <activity
