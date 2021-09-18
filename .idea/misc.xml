@@ -7,12 +7,16 @@
         <entry key="..\:/src/sw/Stand_By_Me/app/src/main/res/layout/activity_maps.xml" value="0.20416666666666666" />
         <entry key="..\:/src/sw/Stand_By_Me/app/src/main/res/layout/activity_profile_actitvity.xml" value="0.20416666666666666" />
         <entry key="..\:/src/sw/Stand_By_Me/app/src/main/res/layout/activity_registro_adulto_mayor.xml" value="0.33" />
-<<<<<<< HEAD
-=======
         <entry key="..\:/src/sw/Stand_By_Me/app/src/main/res/layout/activity_registro_localizacion.xml" value="0.1" />
->>>>>>> rama-Kevin
         <entry key="..\:/src/sw/Stand_By_Me/app/src/main/res/layout/activity_registro_persona_encargada.xml" value="0.20416666666666666" />
         <entry key="..\:/src/sw/Stand_By_Me/app/src/main/res/layout/activity_registro_residencia.xml" value="0.22" />
+        <entry key="..\:/Users/adria/Documents/GitHub/Stand_By_Me.git/app/src/main/res/drawable-anydpi/ic_add.xml" value="0.2546875" />
+        <entry key="..\:/Users/adria/Documents/GitHub/Stand_By_Me.git/app/src/main/res/layout/activity_login.xml" value="0.25118483412322273" />
+        <entry key="..\:/Users/adria/Documents/GitHub/Stand_By_Me.git/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Users/adria/Documents/GitHub/Stand_By_Me.git/app/src/main/res/layout/activity_profile_actitvity.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/adria/Documents/GitHub/Stand_By_Me.git/app/src/main/res/layout/activity_registro_adulto_mayor.xml" value="0.152" />
+        <entry key="..\:/Users/adria/Documents/GitHub/Stand_By_Me.git/app/src/main/res/layout/activity_registro_persona_encargada.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/adria/Documents/GitHub/Stand_By_Me.git/app/src/main/res/menu/menu_adulto_mayor.xml" value="0.23854166666666668" />
       </map>
     </option>
   </component>
