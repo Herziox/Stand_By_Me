@@ -102,8 +102,9 @@ public class RegistroPersonaEncargada extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
+                    String id = firebaseAuth.getCurrentUser().getUid();
                     PersonaEncargada pe = new PersonaEncargada();
-                    pe.setUid(numCedula);
+                    pe.setUid(id);
                     pe.setNombre(name);
                     pe.setApellido(apellido);
                     pe.setContraseña(password);

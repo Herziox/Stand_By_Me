@@ -2,28 +2,45 @@ package com.example.standbyme;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
+import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.FragmentActivity;
 
 import com.example.standbyme.databinding.ActivityMapsBinding;
+import com.example.standbyme.model.CoordenadasGPS;
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
     private ActivityMapsBinding binding;
-    private LocationManager ubicacion;
+    private LocationManager locationManager ;
+    private Button confirmarButton;
 
+    private FirebaseAuth mFirebaseAuth;
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +53,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
     }
 
     /**
@@ -56,17 +74,35 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.ACCESS_COARSE_LOCATION
             },1000);
         }
-        ubicacion=(LocationManager) getSystemService(Context.LOCATION_SERVICE);
-        Location loc =ubicacion.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+        locationManager =(LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        Location loc = locationManager .getLastKnownLocation(LocationManager.GPS_PROVIDER);
 
         mMap.setMyLocationEnabled(true);
 
         // Add a marker in Sydney and move the camera
-        if(ubicacion!= null){
+        if(locationManager != null){
             LatLng sydney = new LatLng(loc.getLatitude(), loc.getLongitude());
             mMap.addMarker(new MarkerOptions().position(sydney).title("Ubicación Actual"));
             mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
         }
 
+        confirmarButton = (Button)findViewById(R.id.btnConfirmar);
+        inicializarFirebase();
+        confirmarButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                CoordenadasGPS gps = new CoordenadasGPS();
+                gps.setLatitud(String.valueOf(loc.getLatitude()));
+                gps.setLonguitud(String.valueOf((loc.getLongitude())));
+                databaseReference.child("CoordenadasGPS").setValue(gps);
+                finish();
+            }
+        });
+    }
+    private void inicializarFirebase() {
+        FirebaseApp.initializeApp(this);
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase.getReference();
+        mFirebaseAuth = FirebaseAuth.getInstance();
     }
 }
