@@ -35,12 +35,61 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical" >
+            <Button
+                android:id="@+id/btnCargarResidencia"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="cargarResidencia"
+                android:text="@string/lblAbrirMapa"
+                android:textColor="@color/white"
+                app:backgroundTint="@color/Secundario" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/textViewLatitud"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/lblLatitud" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/textViewLongitud"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/lblLongitud" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtMetros"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Rango de circulación"
+                    android:inputType="numberDecimal"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/editTextTextPersonName2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Registrar datos del adulto mayor" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Nombre">
-
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/textFieldNombreAM"
                     android:layout_width="match_parent"
@@ -52,7 +101,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Apellido">
-
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/textFieldApellidoAM"
                     android:layout_width="match_parent"
@@ -61,11 +109,9 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Numero de Cedula">
-
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/textFieldNumeroCedulaAM"
                     android:layout_width="match_parent"
@@ -77,7 +123,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Numero de Telefono">
-
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/textFieldNumeroTelefonoAM"
                     android:layout_width="match_parent"
@@ -89,7 +134,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Fecha de Nacimiento">
-
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/textFieldFechaDeNacimientoAM"
                     android:layout_width="match_parent"
@@ -103,7 +147,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Contraseña">
-
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/textFieldPasswordAM"
                     android:layout_width="match_parent"
@@ -115,7 +158,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Repetir Contraseña">
-
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/textFieldRePasswordAM"
                     android:layout_width="match_parent"
@@ -134,59 +176,7 @@
                     android:inputType="text" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <TextView
-                android:id="@+id/editTextTextPersonName2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="@string/lblCargarResidencia" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/txtMetros"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Rango de circulación"
-                    android:inputType="numberDecimal"/>
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/textViewLatitud"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/lblLatitud" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/textViewLongitud"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/lblLongitud" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-            <Button
-                android:id="@+id/btnCargarResidencia"
-                style="@style/Widget.AppCompat.Button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:onClick="cargarResidencia"
-                android:text="@string/lblAbrirMapa"
-                android:textColor="@color/white"
-                app:backgroundTint="@color/Secundario" />
         </LinearLayout>
     </ScrollView>
 
