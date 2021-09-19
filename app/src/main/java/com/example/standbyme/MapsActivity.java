@@ -53,7 +53,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private GoogleMap mMap;
     private ActivityMapsBinding binding;
     private LocationManager locationManager ;
-    private TextView mTextViewData;
     private Spinner mSpinnerAbuelitos;
     private Button confirmarButton;
     private Marker markerPosition;
@@ -112,10 +111,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             }
         }
         mMap.getUiSettings().setZoomControlsEnabled(true);
-        mTextViewData = findViewById(R.id.textViewData);
         mSpinnerAbuelitos = findViewById(R.id.spinnerAbuelitos);
-        //loadAbuelitos();
-
         final List<AdultoMayor> abuelitos = new ArrayList<>();
         databaseReference.child("AdultoMayor1").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -134,8 +130,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                             latitudSeleccionda = Double.parseDouble(adultoMayorSelected.getLatitud());
                             longitudSeleccionda = Double.parseDouble(adultoMayorSelected.getLongitud());
                             radioSeleccionda = Integer.parseInt(adultoMayorSelected.getRangoDeCirculacion());
-                            String salida = radioSeleccionda+"";
-                            mTextViewData.setText(salida);
                             // Marcadores
                             LatLng position = new LatLng(latitudSeleccionda, longitudSeleccionda);
                             markerPosition = googleMap.addMarker(new MarkerOptions()
@@ -148,8 +142,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                             //Añadir circulo
                             LatLng center = new LatLng( latitudSeleccionda, longitudSeleccionda);
                             int radius = radioSeleccionda;
-                            String radius1 = radioSeleccionda+"";
-                            mTextViewData.setText(radius1);
                             CircleOptions circleOptions = new CircleOptions()
                                     .center(center)
                                     .radius(radius)
@@ -172,72 +164,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             public void onCancelled(@NonNull DatabaseError error) {
             }
         });
-/*
-        //Añadir circulo
-        LatLng center = new LatLng(markerPosition.getPosition().latitude, markerPosition.getPosition().longitude);
-        int radius = radioSeleccionda;
-        String radius1 = radioSeleccionda+"";
-        mTextViewData.setText(radius1);
-
-        CircleOptions circleOptions = new CircleOptions()
-                .center(center)
-                .radius(radius)
-                .strokeColor(Color.parseColor("#0D47A1"))
-                .strokeWidth(4)
-                .fillColor(Color.argb(32, 33, 150, 243));
-        // Añadir círculo
-        Circle circle = mMap.addCircle(circleOptions);
-        //(Opcional) Actualiza el objetivo de la cámara:
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(center, 17));*/
-
-    }
-    public void loadAbuelitos(){/*
-        final List<AdultoMayor> abuelitos = new ArrayList<>();
-        databaseReference.child("AdultoMayor1").addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.exists()) {
-                    for (DataSnapshot dataSnapshot: snapshot.getChildren()){
-                        AdultoMayor am = dataSnapshot.getValue(AdultoMayor.class);
-                        abuelitos.add(am);
-                    }
-                    ArrayAdapter<AdultoMayor> arrayAdapter = new ArrayAdapter<>(MapsActivity.this, android.R.layout.simple_dropdown_item_1line, abuelitos);
-                    mSpinnerAbuelitos.setAdapter(arrayAdapter);
-                    mSpinnerAbuelitos.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                        @Override
-                        public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                            adultoMayorSelected = (AdultoMayor) adapterView.getItemAtPosition(i);
-                            latitudSeleccionda = Double.parseDouble(adultoMayorSelected.getLatitud());
-                            longitudSeleccionda = Double.parseDouble(adultoMayorSelected.getLongitud());
-                            radioSeleccionda = Integer.parseInt(adultoMayorSelected.getRangoDeCirculacion());
-
-                            //Añadir circulo
-                            LatLng center = new LatLng( latitudSeleccionda, longitudSeleccionda);
-                            int radius = radioSeleccionda;
-                            String radius1 = radioSeleccionda+"";
-                            mTextViewData.setText(radius1);
-                            CircleOptions circleOptions = new CircleOptions()
-                                    .center(center)
-                                    .radius(radius)
-                                    .strokeColor(Color.parseColor("#0D47A1"))
-                                    .strokeWidth(4)
-                                    .fillColor(Color.argb(32, 33, 150, 243));
-                            // Añadir círculo
-                            Circle circle = mMap.addCircle(circleOptions);
-                            //(Opcional) Actualiza el objetivo de la cámara:
-                            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(center, 17));
-                        }
-                        @Override
-                        public void onNothingSelected(AdapterView<?> adapterView) {
-
-                        }
-                    });
-            }
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-            }
-        });*/
     }
     private void inicializarFirebase() {
         FirebaseApp.initializeApp(this);
