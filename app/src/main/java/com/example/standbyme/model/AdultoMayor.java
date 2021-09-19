@@ -18,6 +18,11 @@ public class AdultoMayor {
     public AdultoMayor() {
     }
 
+    public AdultoMayor(String id, String nombre) {
+        this.uid = id;
+        this.nombre = nombre;
+    }
+
     public String getPkIDPersonaEncargada() {
         return pkIDPersonaEncargada;
     }

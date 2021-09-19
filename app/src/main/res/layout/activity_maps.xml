@@ -6,21 +6,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/colorPrimary"
     tools:context=".MainActivity">
-
-    <Button
-        android:id="@+id/btnConfirmar"
+    <TextView
+        android:id="@+id/textViewData"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Confirmar"
-        app:backgroundTint="@color/Secundario" />
-
-    <LinearLayout
+        android:text="Seleccionar el adulto mayor"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:layout_margin="20dp"/>
+    <Spinner
+        android:id="@+id/spinnerAbuelitos"
         android:layout_width="match_parent"
-        android:layout_height="607dp"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content" />
 
-        <fragment
+    <fragment
             android:id="@+id/map"
             android:name="com.google.android.gms.maps.SupportMapFragment"
             android:layout_width="match_parent"
@@ -28,7 +29,6 @@
             android:layout_marginTop="100dp"
             tools:context=".MapsActivity" />
 
-    </LinearLayout>
 
 
 </LinearLayout>

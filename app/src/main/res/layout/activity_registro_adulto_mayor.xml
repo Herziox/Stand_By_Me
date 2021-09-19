@@ -134,7 +134,7 @@
                     android:inputType="text" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <EditText
+            <TextView
                 android:id="@+id/editTextTextPersonName2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

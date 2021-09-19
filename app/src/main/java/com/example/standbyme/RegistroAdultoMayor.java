@@ -66,8 +66,6 @@ public class RegistroAdultoMayor extends AppCompatActivity {
 
         inicializarFirebase();
 
-        listarDatos();
-
         // Extraer lat. y lng.
         Intent intent = getIntent();
         String latitud = Double.toString(intent.getDoubleExtra(registro_Localizacion.EXTRA_LATITUD, 0));
@@ -75,6 +73,18 @@ public class RegistroAdultoMayor extends AppCompatActivity {
         //se setea
         latitudaAM.setText(latitud);
         longitudAM.setText(longuitud);
+
+        fechaNacimientoAM.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                switch (view.getId()) {
+                    case R.id.textFieldFechaDeNacimientoAM:
+                        showDatePickerDialog();
+                }
+            }
+        });
+
+        listarDatos();
 
         fechaNacimientoAM.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -99,8 +109,6 @@ public class RegistroAdultoMayor extends AppCompatActivity {
                 rePpasswordAM.setText(adultoMayorSelected.getContraseña());
                 observacionesAM.setText(adultoMayorSelected.getObservaciones());
                 rangoAM.setText(adultoMayorSelected.getRangoDeCirculacion());
-                latitudaAM.setText(adultoMayorSelected.getLatitud());
-                longitudAM.setText(adultoMayorSelected.getLongitud());
             }
         });
 
@@ -174,6 +182,7 @@ public class RegistroAdultoMayor extends AppCompatActivity {
         String rango = rangoAM.getText().toString();
         String latitud = latitudaAM.getText().toString();
         String longitud = longitudAM.getText().toString();
+
 
         switch (item.getItemId()){
             case R.id.icon_add:{
@@ -262,7 +271,6 @@ public class RegistroAdultoMayor extends AppCompatActivity {
     public void cargarResidencia(View view){
         Intent siguiente = new Intent(this, registro_Localizacion.class);
         startActivity(siguiente);
-        //setearCoordenadasGPS();
     }
 
     private boolean validacionVacios() {
