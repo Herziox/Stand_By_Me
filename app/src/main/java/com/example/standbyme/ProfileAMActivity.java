@@ -28,7 +28,7 @@ public class ProfileAMActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_amactivity);
         cedula = getIntent().getStringExtra("cedula");
-        text1= (TextView) findViewById(R.id.text1);
+        text1= (TextView) findViewById(R.id.txtUbicacionReal);
         text1.setText(cedula);
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
         mDatabase= FirebaseDatabase.getInstance().getReference();
