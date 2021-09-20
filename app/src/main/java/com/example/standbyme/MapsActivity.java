@@ -3,6 +3,7 @@ package com.example.standbyme;
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.view.View;
@@ -47,7 +48,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private Spinner mSpinnerAbuelitos;
     private Button confirmarButton;
     private Marker markerPosition;
-    private double longitudSeleccionda = -0.210146, latitudSeleccionda = -78.490165;
+    private Circle circle;
+    private double longitudSeleccionda = -0.210146, latitudSeleccionda = -78.490165, latitudSelecciondaReal, longuitudSelecciondaReal;
+    private String uidSeleccionado;
     private int radioSeleccionda = 40;
     private AdultoMayor adultoMayorSelected;
 
@@ -109,6 +112,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .title("Posición")
                 .draggable(true)
         );
+        LatLng center = new LatLng( latitudSeleccionda, longitudSeleccionda);
+        int radius = radioSeleccionda;
+        CircleOptions circleOptions = new CircleOptions()
+                .center(center)
+                .radius(radius)
+                .strokeColor(Color.parseColor("#0D47A1"))
+                .strokeWidth(4)
+                .fillColor(Color.argb(32, 33, 150, 243));
+        // Añadir círculo
+        circle = mMap.addCircle(circleOptions);
         //Añadir el spiner para seleccionar el adulto mayor
         mMap.getUiSettings().setZoomControlsEnabled(true);
         mSpinnerAbuelitos = findViewById(R.id.spinnerAbuelitos);
@@ -131,24 +144,35 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                             latitudSeleccionda = Double.parseDouble(adultoMayorSelected.getLatitud());
                             longitudSeleccionda = Double.parseDouble(adultoMayorSelected.getLongitud());
                             radioSeleccionda = Integer.parseInt(adultoMayorSelected.getRangoDeCirculacion());
+                            latitudSelecciondaReal = Double.parseDouble(adultoMayorSelected.getLatitudReal());
+                            longuitudSelecciondaReal = Double.parseDouble(adultoMayorSelected.getLongitudReal());
 
-                            LatLng nuevaPosicion = new LatLng(latitudSeleccionda, longitudSeleccionda);
-                            markerPosition.setPosition(nuevaPosicion);
+                            LatLng nuevaPosicionReal = new LatLng(latitudSelecciondaReal, longuitudSelecciondaReal);
+                            markerPosition.setPosition(nuevaPosicionReal);
                             // Cámara
                             googleMap.moveCamera(CameraUpdateFactory.newLatLng(position));
                             //Añadir circulo
                             LatLng center = new LatLng( latitudSeleccionda, longitudSeleccionda);
                             int radius = radioSeleccionda;
-                            CircleOptions circleOptions = new CircleOptions()
-                                    .center(center)
-                                    .radius(radius)
-                                    .strokeColor(Color.parseColor("#0D47A1"))
-                                    .strokeWidth(4)
-                                    .fillColor(Color.argb(32, 33, 150, 243));
-                            // Añadir círculo
-                            Circle circle = mMap.addCircle(circleOptions);
+                            circle.setRadius(radius);
+                            circle.setCenter(center);
                             //(Opcional) Actualiza el objetivo de la cámara:
                             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(center, 17));
+
+                            Location locationA = new Location("punto A");
+                            locationA.setLatitude(latitudSelecciondaReal);
+                            locationA.setLongitude(longuitudSelecciondaReal);
+                            Location locationB = new Location("punto B");
+                            locationB.setLatitude(latitudSeleccionda);
+                            locationB.setLongitude(longitudSeleccionda);
+
+                            double distance = locationA.distanceTo(locationB);
+                            if (distance > radius){
+                                Toast.makeText(MapsActivity.this, "El adulto mayor salio del rango establecido, se encutra a "+
+                                        String.valueOf(distance) +" del hogar", Toast.LENGTH_LONG).show();
+                            }
+
+                            
                         }
                         @Override
                         public void onNothingSelected(AdapterView<?> adapterView) {
