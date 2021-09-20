@@ -53,7 +53,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private int radioSeleccionda = 40;
     private AdultoMayor adultoMayorSelected;
 
-
     private ArrayList<Marker> tmpRealTimeMarker= new ArrayList<>();
     private ArrayList<Marker> realTimeMarker= new ArrayList<>();
 
@@ -156,6 +155,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                             circle.setCenter(center);
                             //(Opcional) Actualiza el objetivo de la cámara:
                             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(center, 17));
+                            
                         }
                         @Override
                         public void onNothingSelected(AdapterView<?> adapterView) {
