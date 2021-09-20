@@ -21,7 +21,7 @@ public class ProfilePEActitvity extends AppCompatActivity {
 
         mFirebaseAuth = FirebaseAuth.getInstance();
 
-        mButtonSignOut = (Button) findViewById(R.id.btnsignout);
+        mButtonSignOut = (Button) findViewById(R.id.btnSignout);
         mButtonAdministrarAM = (Button) findViewById(R.id.btnAdministrarAdultoMayor);
         mMonitorearAM = (Button) findViewById(R.id.btnMonitorearAdultoMayor);
         mButtonAdministrarCuenta = (Button) findViewById(R.id.btnAdministrarCuenta);

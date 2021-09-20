@@ -1,10 +1,13 @@
 package com.example.standbyme;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,6 +25,8 @@ public class ProfileAMActivity extends AppCompatActivity {
     private String cedula;
     private FusedLocationProviderClient mFusedLocationClient;
     DatabaseReference mDatabase;
+    private Button mButtonSignOut;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +37,19 @@ public class ProfileAMActivity extends AppCompatActivity {
         text1.setText(cedula);
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
         mDatabase= FirebaseDatabase.getInstance().getReference();
+
+        mButtonSignOut = (Button) findViewById(R.id.btnSignout);
+
+        mButtonSignOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //mFirebaseAuth.signOut();
+                startActivity(new Intent(ProfileAMActivity.this, MainActivity.class));
+                finish();
+            }
+        });
+
+
         subirLatLon();
     }
 
@@ -64,4 +82,5 @@ public class ProfileAMActivity extends AppCompatActivity {
                     }
                 });
     }
+
 }
