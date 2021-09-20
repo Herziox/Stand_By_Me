@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:gravity="center"
     android:background="@color/colorPrimary"
-    tools:context=".ProfileActitvity">
+    tools:context=".ProfilePEActitvity">
 
     <ImageView
         android:id="@+id/imgLogo"

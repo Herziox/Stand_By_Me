@@ -20,6 +20,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.StandByMe">
+        <activity android:name=".ProfileAMActivity" />
+        <activity
+            android:name=".LoginAM"
+            android:label="@string/title_activity_prueba"
+            android:theme="@style/Theme.StandByMe.NoActionBar" />
         <activity
             android:name=".PantallaAdutoMayor"
             android:exported="true" />
@@ -29,20 +34,6 @@
         <activity
             android:name=".AdminPE"
             android:exported="true" />
-        <!--
-             The API key for Google Maps-based APIs is defined as a string resource.
-             (See the file "res/values/google_maps_api.xml").
-             Note that the API key is linked to the encryption key used to sign the APK.
-             You need a different API key for each encryption key, including the release key that is used to
-             sign the APK for publishing.
-             You can define the keys for the debug and release targets in src/debug/ and src/release/.
-        -->
-        <!--
- Meta-Data Henry
-          <meta-data
-              android:name="com.google.android.geo.API_KEY"
-              android:value="@string/google_maps_key" />
-        -->
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />
@@ -56,10 +47,10 @@
             android:name=".RegistroAdultoMayor"
             android:exported="true" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".LoginPEActivity"
             android:exported="true" />
         <activity
-            android:name=".ProfileActitvity"
+            android:name=".ProfilePEActitvity"
             android:exported="true" />
         <activity android:name=".SeleccionarUsuario" />
         <activity android:name=".RegistroPersonaEncargada" />

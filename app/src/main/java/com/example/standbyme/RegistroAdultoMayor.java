@@ -1,8 +1,5 @@
 package com.example.standbyme;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,8 +14,10 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.standbyme.model.AdultoMayor;
-import com.example.standbyme.model.CoordenadasGPS;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -66,6 +65,24 @@ public class RegistroAdultoMayor extends AppCompatActivity {
 
         inicializarFirebase();
 
+        // Extraer lat. y lng.
+        Intent intent = getIntent();
+        String latitud = Double.toString(intent.getDoubleExtra(registro_Localizacion.EXTRA_LATITUD, 0));
+        String longuitud = Double.toString(intent.getDoubleExtra(registro_Localizacion.EXTRA_LONGITUD, 0));
+        //se setea
+        latitudaAM.setText(latitud);
+        longitudAM.setText(longuitud);
+
+        fechaNacimientoAM.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                switch (view.getId()) {
+                    case R.id.textFieldFechaDeNacimientoAM:
+                        showDatePickerDialog();
+                }
+            }
+        });
+
         listarDatos();
 
         fechaNacimientoAM.setOnClickListener(new View.OnClickListener() {
@@ -91,41 +108,14 @@ public class RegistroAdultoMayor extends AppCompatActivity {
                 rePpasswordAM.setText(adultoMayorSelected.getContraseña());
                 observacionesAM.setText(adultoMayorSelected.getObservaciones());
                 rangoAM.setText(adultoMayorSelected.getRangoDeCirculacion());
-                latitudaAM.setText(adultoMayorSelected.getLatitud());
-                longitudAM.setText(adultoMayorSelected.getLongitud());
             }
         });
 
 
     }
-
-    private void setearCoordenadasGPS() {
-        CoordenadasGPS gps= new CoordenadasGPS();
-        databaseReference.child("CoordenadasGPS").child("latitud").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                String latitud = snapshot.getValue().toString();
-                gps.setLatitud(latitud);
-                latitudaAM.setText(gps.getLatitud());
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-        databaseReference.child("CoordenadasGPS").child("longuitud").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                String longuitud = snapshot.getValue().toString();
-                gps.setLonguitud(longuitud);
-                longitudAM.setText(gps.getLonguitud());
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return super.onSupportNavigateUp();
     }
 
     private void showDatePickerDialog() {
@@ -192,6 +182,7 @@ public class RegistroAdultoMayor extends AppCompatActivity {
         String latitud = latitudaAM.getText().toString();
         String longitud = longitudAM.getText().toString();
 
+
         switch (item.getItemId()){
             case R.id.icon_add:{
                 if (validacion() && !validacionVacios()){
@@ -255,7 +246,7 @@ public class RegistroAdultoMayor extends AppCompatActivity {
                 break;
             }
             case R.id.icon_residencia:{
-                startActivity(new Intent( this, ProfileActitvity.class));
+                startActivity(new Intent( this, ProfilePEActitvity.class));
                 break;
             }
             default:break;
@@ -277,9 +268,8 @@ public class RegistroAdultoMayor extends AppCompatActivity {
     }
 
     public void cargarResidencia(View view){
-        Intent siguiente = new Intent(this, MapsActivity.class);
+        Intent siguiente = new Intent(this, registro_Localizacion.class);
         startActivity(siguiente);
-        setearCoordenadasGPS();
     }
 
     private boolean validacionVacios() {

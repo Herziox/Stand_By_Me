@@ -15,7 +15,13 @@ public class AdultoMayor {
     private String latitud;
     private String longitud;
 
+
     public AdultoMayor() {
+    }
+
+    public AdultoMayor(String id, String nombre) {
+        this.uid = id;
+        this.nombre = nombre;
     }
 
     public String getPkIDPersonaEncargada() {
@@ -113,6 +119,8 @@ public class AdultoMayor {
     public void setLongitud(String longitud) {
         this.longitud = longitud;
     }
+
+
 
     @Override
     public String toString() {
