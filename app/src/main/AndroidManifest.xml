@@ -20,6 +20,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.StandByMe">
+        <activity android:name=".ProfileAMActivity" />
+        <activity
+            android:name=".LoginAM"
+            android:label="@string/title_activity_prueba"
+            android:theme="@style/Theme.StandByMe.NoActionBar" />
         <activity
             android:name=".ResetPassword"
             android:exported="true" />
@@ -39,10 +44,10 @@
             android:name=".RegistroAdultoMayor"
             android:exported="true" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".LoginPEActivity"
             android:exported="true" />
         <activity
-            android:name=".ProfileActitvity"
+            android:name=".ProfilePEActitvity"
             android:exported="true" />
         <activity android:name=".SeleccionarUsuario" />
         <activity android:name=".RegistroPersonaEncargada" />

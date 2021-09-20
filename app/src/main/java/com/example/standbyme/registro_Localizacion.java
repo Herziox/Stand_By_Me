@@ -1,10 +1,5 @@
 package com.example.standbyme;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -12,7 +7,6 @@ import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
-import android.os.Bundle;
 
 import android.view.View;
 import android.widget.Button;
@@ -24,6 +18,14 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
+import android.graphics.Color;
+import android.os.Bundle;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -143,7 +145,20 @@ private static final int LOCATION_REQUEST_CODE = 1;
                 startActivity(intent);
             }
         });
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(posicionMarcador, 17));
+
+        //Añadir circulo
+        LatLng center = new LatLng(markerPosition.getPosition().latitude, markerPosition.getPosition().longitude);
+        int radius = 40;
+        CircleOptions circleOptions = new CircleOptions()
+                .center(center)
+                .radius(radius)
+                .strokeColor(Color.parseColor("#0D47A1"))
+                .strokeWidth(4)
+                .fillColor(Color.argb(32, 33, 150, 243));
+        // Añadir círculo
+        Circle circle = mMap.addCircle(circleOptions);
+        //(Opcional) Actualiza el objetivo de la cámara:
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(center, 17));
 
     }
 

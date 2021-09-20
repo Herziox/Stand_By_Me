@@ -1,14 +1,14 @@
 package com.example.standbyme;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.standbyme.model.PersonaEncargada;
 import com.google.firebase.auth.FirebaseAuth;
@@ -48,7 +48,7 @@ public class AdminPE extends AppCompatActivity {
         mButtonSalir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(AdminPE.this, ProfileActitvity.class));
+                startActivity(new Intent(AdminPE.this, ProfilePEActitvity.class));
                 finish();
             }
         });

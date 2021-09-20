@@ -51,6 +51,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private int radioSeleccionda = 40;
     private AdultoMayor adultoMayorSelected;
 
+    private ArrayList<Marker> tmpRealTimeMarker= new ArrayList<>();
+    private ArrayList<Marker> realTimeMarker= new ArrayList<>();
+
     private FirebaseAuth mFirebaseAuth;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
@@ -68,8 +71,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
         inicializarFirebase();
-
-
     }
 
     /**
@@ -122,6 +123,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                             latitudSeleccionda = Double.parseDouble(adultoMayorSelected.getLatitud());
                             longitudSeleccionda = Double.parseDouble(adultoMayorSelected.getLongitud());
                             radioSeleccionda = Integer.parseInt(adultoMayorSelected.getRangoDeCirculacion());
+
                             // Marcadores
                             LatLng position = new LatLng(latitudSeleccionda, longitudSeleccionda);
                             markerPosition = googleMap.addMarker(new MarkerOptions()

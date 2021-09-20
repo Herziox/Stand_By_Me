@@ -1,12 +1,11 @@
 package com.example.standbyme;
-import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseAuthException;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -22,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
     //Botón Inicio Sesión
     public void InicioSesion(View view){
-        Intent inicioSesion = new Intent(this, LoginActivity.class);
+        Intent inicioSesion = new Intent(this, SeleccionarUsuario.class);
         startActivity(inicioSesion);
     }
 
@@ -37,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         if (mFirebaseAuth.getCurrentUser()!= null){
-            startActivity(new Intent(MainActivity.this, ProfileActitvity.class));
+            startActivity(new Intent(MainActivity.this, ProfilePEActitvity.class));
             finish();
         }
     }

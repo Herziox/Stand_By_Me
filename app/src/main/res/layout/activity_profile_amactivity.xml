@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:gravity="center"
     android:background="@color/colorPrimary"
-    tools:context=".ProfilePEActitvity">
+    tools:context=".ProfileAMActivity">
 
     <ImageView
         android:id="@+id/imgLogo"
@@ -18,38 +18,19 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo" />
 
-    <Button
-        android:id="@+id/btnAdministrarAdultoMayor"
+    <TextView
+        android:id="@+id/text1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:background="@color/black"
-        android:text="Administrar Adulto Mayor"
-        android:textColor="@color/white" />
+        android:text="TextView" />
 
-    <Button
-        android:id="@+id/btnMonitorearAdultoMayor"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Monitorear Adulto Mayor"
-        android:layout_margin="20dp"
-        android:background="@color/black"
-        android:textColor="@color/white"/>
-    <Button
-        android:id="@+id/btnAdministrarCuenta"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="ADMINISTRAR MI CUENTA"
-        android:layout_margin="20dp"
-        android:background="@color/colorPrimary"
-        android:textColor="@color/white"/>
     <Button
         android:id="@+id/btnsignout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="CERRAR SESION"
         android:layout_margin="20dp"
         android:background="@color/colorPrimary"
-        android:textColor="@color/white"/>
+        android:text="CERRAR SESION"
+        android:textColor="@color/white" />
 
 </LinearLayout>

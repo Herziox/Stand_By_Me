@@ -1,8 +1,5 @@
 package com.example.standbyme;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,8 +14,10 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.standbyme.model.AdultoMayor;
-import com.example.standbyme.model.CoordenadasGPS;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -247,7 +246,7 @@ public class RegistroAdultoMayor extends AppCompatActivity {
                 break;
             }
             case R.id.icon_residencia:{
-                startActivity(new Intent( this, ProfileActitvity.class));
+                startActivity(new Intent( this, ProfilePEActitvity.class));
                 break;
             }
             default:break;
