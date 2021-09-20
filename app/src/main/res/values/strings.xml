@@ -46,5 +46,18 @@
     <string name="lblCargarResidencia">Cargar datos de residencia</string>
     <string name="title_activity_maps">Map</string>
 
+    <!-- Pantalla Adulto Mayor-->
+    <string name="lblEstasSiendoCuidado">Estás siendo cuidado por</string>
+    <string name="lblProvicional">Persona Encargada</string>
+    <string name="lblSalir">Salir</string>
+
+
+    <string name="title_activity_prueba">prueba</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="marker_detail_latlng">(%1$.2f, %2$.2f)</string>
 
 </resources>

@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:gravity="center"
     android:background="@color/colorPrimary"
-    tools:context=".ProfileActitvity">
+    tools:context=".ProfilePEActitvity">
 
     <ImageView
         android:id="@+id/imgLogo"
@@ -44,7 +44,7 @@
         android:background="@color/colorPrimary"
         android:textColor="@color/white"/>
     <Button
-        android:id="@+id/btnsignout"
+        android:id="@+id/btnSignout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="CERRAR SESION"

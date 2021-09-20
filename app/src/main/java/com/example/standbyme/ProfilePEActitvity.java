@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-public class ProfileActitvity extends AppCompatActivity {
+public class ProfilePEActitvity extends AppCompatActivity {
 
     private Button mButtonSignOut,mButtonAdministrarAM, mMonitorearAM, mButtonAdministrarCuenta;
     private FirebaseAuth mFirebaseAuth;
@@ -21,17 +21,17 @@ public class ProfileActitvity extends AppCompatActivity {
 
         mFirebaseAuth = FirebaseAuth.getInstance();
 
-        mButtonSignOut = (Button) findViewById(R.id.btnsignout);
+        mButtonSignOut = (Button) findViewById(R.id.btnSignout);
         mButtonAdministrarAM = (Button) findViewById(R.id.btnAdministrarAdultoMayor);
-        mMonitorearAM = (Button) findViewById(R.id.btnMonitorearAdultoMayor);//Falta Implentar
-        mButtonAdministrarCuenta = (Button) findViewById(R.id.btnAdministrarCuenta);//FaltaImplenetar
+        mMonitorearAM = (Button) findViewById(R.id.btnMonitorearAdultoMayor);
+        mButtonAdministrarCuenta = (Button) findViewById(R.id.btnAdministrarCuenta);
 
 
         mButtonSignOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 mFirebaseAuth.signOut();
-                startActivity(new Intent(ProfileActitvity.this, MainActivity.class));
+                startActivity(new Intent(ProfilePEActitvity.this, MainActivity.class));
                 finish();
             }
         });
@@ -39,7 +39,7 @@ public class ProfileActitvity extends AppCompatActivity {
          mMonitorearAM.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ProfileActitvity .this, registro_Localizacion.class));
+                startActivity(new Intent(ProfilePEActitvity.this, MapsActivity.class));
             }
         });
 
@@ -47,7 +47,15 @@ public class ProfileActitvity extends AppCompatActivity {
         mButtonAdministrarAM.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(ProfileActitvity.this, RegistroAdultoMayor.class));
+                startActivity(new Intent(ProfilePEActitvity.this, RegistroAdultoMayor.class));
+            }
+        });
+
+        mButtonAdministrarCuenta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(ProfilePEActitvity.this, AdminPE.class));
+                finish();
             }
         });
 

@@ -1,14 +1,14 @@
 package com.example.standbyme;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.standbyme.model.PersonaEncargada;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -18,10 +18,6 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
 
 public class RegistroPersonaEncargada extends AppCompatActivity {
     private EditText etxNombre, etxApellido, etxNumCel, etxObservaciones, etxCorreoElec, etxContra, etxConContra, etxcedula;
@@ -102,8 +98,9 @@ public class RegistroPersonaEncargada extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
+                    String id = firebaseAuth.getCurrentUser().getUid();
                     PersonaEncargada pe = new PersonaEncargada();
-                    pe.setUid(numCedula);
+                    pe.setUid(id);
                     pe.setNombre(name);
                     pe.setApellido(apellido);
                     pe.setContraseña(password);
@@ -114,7 +111,7 @@ public class RegistroPersonaEncargada extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<Void> task2) {
                             if (task2.isSuccessful()) {
-                                startActivity(new Intent(RegistroPersonaEncargada.this, ProfileActitvity.class));
+                                startActivity(new Intent(RegistroPersonaEncargada.this, ProfilePEActitvity.class));
                                 finish();
                             } else {
                                 Toast.makeText(RegistroPersonaEncargada.this, "No se pudo registrar los datos correctamente", Toast.LENGTH_SHORT).show();
