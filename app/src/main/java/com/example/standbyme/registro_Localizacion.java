@@ -31,6 +31,8 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.Circle;
+import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -147,7 +149,7 @@ private static final int LOCATION_REQUEST_CODE = 1;
         });
 
         //Añadir circulo
-        LatLng center = new LatLng(markerPosition.getPosition().latitude, markerPosition.getPosition().longitude);
+        LatLng center = new LatLng(mCurrLocationMarker.getPosition().latitude, mCurrLocationMarker.getPosition().longitude);
         int radius = 40;
         CircleOptions circleOptions = new CircleOptions()
                 .center(center)
