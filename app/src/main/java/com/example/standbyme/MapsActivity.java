@@ -52,7 +52,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private String uidSeleccionado;
     private int radioSeleccionda = 40;
     private AdultoMayor adultoMayorSelected;
-    private CoordenadasGPS gps;
+
 
     private ArrayList<Marker> tmpRealTimeMarker= new ArrayList<>();
     private ArrayList<Marker> realTimeMarker= new ArrayList<>();
