@@ -110,7 +110,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         markerPosition = googleMap.addMarker(new MarkerOptions()
                 .position(position)
                 .title("Posición")
-                .draggable(true)
         );
         LatLng center = new LatLng( latitudSeleccionda, longitudSeleccionda);
         int radius = radioSeleccionda;

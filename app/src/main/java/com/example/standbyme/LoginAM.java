@@ -91,6 +91,7 @@ public class LoginAM extends AppCompatActivity {
         Intent siguiente = new Intent(this, ProfileAMActivity.class);
         siguiente.putExtra("cedula",mEditTextEmail.getText().toString());
         startActivity(siguiente);
+        finish();
     }
 
 
