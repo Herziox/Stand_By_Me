@@ -5,9 +5,11 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -26,6 +28,7 @@ public class ProfileAMActivity extends AppCompatActivity {
     private FusedLocationProviderClient mFusedLocationClient;
     DatabaseReference mDatabase;
     private Button mButtonSignOut;
+    Handler handler = new Handler();
 
 
     @Override
@@ -49,32 +52,27 @@ public class ProfileAMActivity extends AppCompatActivity {
             }
         });
 
-        Runnable runnable = new Runnable() {
-            @Override
+
+        ejecutarTarea();
+
+    }
+
+    public void ejecutarTarea() {
+        handler.postDelayed(new Runnable() {
             public void run() {
-                // Esto se ejecuta en segundo plano una única vez
-                while (true) {
-                    // Pero usamos un truco y hacemos un ciclo infinito
-                    try {
-                        // En él, hacemos que el hilo duerma
-                        Thread.sleep(1000);
-                        // Y después realizamos las operaciones
-                        subirLatLon();
-                        // Así, se da la impresión de que se ejecuta cada cierto tiempo
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }
+
+                // función a ejecutar
+
+                subirLatLon(); // función para refrescar la ubicación del conductor, creada en otra línea de código
+
+                handler.postDelayed(this, 1000);
             }
-        };
 
-
+        }, 1000);
 
     }
 
     private void subirLatLon() {
-
-
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
             //    ActivityCompat#requestPermissions
@@ -97,6 +95,7 @@ public class ProfileAMActivity extends AppCompatActivity {
                             text1.setText("Ubicación enviada");
                             mDatabase.child("AdultoMayor1").child(cedula).child("latitudReal").setValue(am.getLatitudReal());
                             mDatabase.child("AdultoMayor1").child(cedula).child("longitudReal").setValue(am.getLongitudReal());
+                            Toast.makeText(ProfileAMActivity.this, "Datos actualizados", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
