@@ -110,7 +110,6 @@ private static final int LOCATION_REQUEST_CODE = 1;
                         .position(posicionMarcador)
                         .title("Posicion")
                         .draggable(true);
-
         mCurrLocationMarker = googleMap.addMarker(markerOptions);
 
         // Cámara

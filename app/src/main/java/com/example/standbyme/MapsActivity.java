@@ -102,6 +102,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         LOCATION_REQUEST_CODE);
             }
         }
+        // Marcador
+        LatLng position = new LatLng(latitudSeleccionda, longitudSeleccionda);
+        markerPosition = googleMap.addMarker(new MarkerOptions()
+                .position(position)
+                .title("Posición")
+                .draggable(true)
+        );
+        //Añadir el spiner para seleccionar el adulto mayor
         mMap.getUiSettings().setZoomControlsEnabled(true);
         mSpinnerAbuelitos = findViewById(R.id.spinnerAbuelitos);
         final List<AdultoMayor> abuelitos = new ArrayList<>();
@@ -124,13 +132,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                             longitudSeleccionda = Double.parseDouble(adultoMayorSelected.getLongitud());
                             radioSeleccionda = Integer.parseInt(adultoMayorSelected.getRangoDeCirculacion());
 
-                            // Marcadores
-                            LatLng position = new LatLng(latitudSeleccionda, longitudSeleccionda);
-                            markerPosition = googleMap.addMarker(new MarkerOptions()
-                                    .position(position)
-                                    .title("Posición")
-                                    .draggable(true)
-                            );
+                            LatLng nuevaPosicion = new LatLng(latitudSeleccionda, longitudSeleccionda);
+                            markerPosition.setPosition(nuevaPosicion);
                             // Cámara
                             googleMap.moveCamera(CameraUpdateFactory.newLatLng(position));
                             //Añadir circulo
