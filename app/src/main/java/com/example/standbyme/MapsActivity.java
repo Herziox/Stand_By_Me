@@ -1,12 +1,8 @@
 package com.example.standbyme;
 
 import android.Manifest;
-import android.content.Context;
-import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
-import android.location.Location;
-import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.view.View;
@@ -14,7 +10,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -24,9 +19,6 @@ import androidx.fragment.app.FragmentActivity;
 
 import com.example.standbyme.databinding.ActivityMapsBinding;
 import com.example.standbyme.model.AdultoMayor;
-import com.example.standbyme.model.CoordenadasGPS;
-import com.google.android.gms.location.FusedLocationProviderClient;
-import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -36,7 +28,6 @@ import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -113,9 +104,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.getUiSettings().setZoomControlsEnabled(true);
         mSpinnerAbuelitos = findViewById(R.id.spinnerAbuelitos);
         final List<AdultoMayor> abuelitos = new ArrayList<>();
-        databaseReference.child("AdultoMayor1").addListenerForSingleValueEvent(new ValueEventListener() {
+        databaseReference.child("AdultoMayor1").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                abuelitos.clear();
                 if (snapshot.exists()) {
                     for (DataSnapshot dataSnapshot: snapshot.getChildren()){
                         AdultoMayor am = dataSnapshot.getValue(AdultoMayor.class);
