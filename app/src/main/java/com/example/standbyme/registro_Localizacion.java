@@ -148,20 +148,15 @@ private static final int LOCATION_REQUEST_CODE = 1;
             }
         });
 
-        //Añadir circulo
-        LatLng center = new LatLng(mCurrLocationMarker.getPosition().latitude, mCurrLocationMarker.getPosition().longitude);
-        int radius = 40;
-        CircleOptions circleOptions = new CircleOptions()
-                .center(center)
-                .radius(radius)
-                .strokeColor(Color.parseColor("#0D47A1"))
-                .strokeWidth(4)
-                .fillColor(Color.argb(32, 33, 150, 243));
-        // Añadir círculo
-        Circle circle = mMap.addCircle(circleOptions);
-        //(Opcional) Actualiza el objetivo de la cámara:
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(center, 17));
+        //Actualiza el objetivo de la cámara:
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(mCurrLocationMarker.getPosition(), 17));
 
+        googleMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
+            @Override
+            public void onMapClick(LatLng point) {
+                mCurrLocationMarker.setPosition(point);
+            }
+        });
     }
 
 
@@ -222,6 +217,9 @@ private static final int LOCATION_REQUEST_CODE = 1;
 
         mLastLocation = location;
         if (mCurrLocationMarker != null) {
+            mCurrLocationMarker.remove();
+        }
+        if (mCurrLocationMarker.isFlat()){
             mCurrLocationMarker.remove();
         }
         //Place current location marker
