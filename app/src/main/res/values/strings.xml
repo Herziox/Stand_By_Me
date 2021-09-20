@@ -1,3 +1,63 @@
 <resources>
+    <!-- General-->
     <string name="app_name">Stand By Me</string>
+    <string name="lblNombre">Nombre</string>
+    <string name="lblApellido">Apellido</string>
+    <string name="lblCorreoElectronico">Correo Electronico</string>
+    <string name="lblNumCel">Número Celular</string>
+    <string name="lblContra">Contraseña</string>
+    <string name="lblConContra">Confirmar Contraseña</string>
+    <string name="lblSiguiente">Siguiente</string>
+    <string name="lblObservaciones">Observaciones</string>
+    <string name="lblRegistrarse">Registrarse</string>
+    <string name="lblInicioSesion">Iniciar Sesión</string>
+
+    <!-- Registro Persona Encarga-->
+    <string name="lblTituloPE">Persona Encargada</string>
+
+    <!-- Registro Adulto Mayor-->
+    <string name="lblTituloAM">Adulto Mayor</string>
+
+    <!-- Seleccionar Usuario-->
+    <string name="lblSelUsu">Seleccionar Usuario</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+
+    <!-- Residencia-->
+    <string name="lblTituloRE">Residencia</string>
+    <string name="lblProvincia">Provincia</string>
+    <string name="lblCiudad">Ciudad</string>
+    <string name="lblParroquia">Parroquia</string>
+    <string name="lblCallePrincipal">Calle Principal</string>
+    <string name="lblCalleSecundaria">Calle Secundaria</string>
+    <string name="lblNumeroCasa">Número</string>
+    <string name="lblLatitud">Latitud</string>
+    <string name="lblLongitud">Longitud</string>
+    <string name="lblCargaAutomatica">Automática</string>
+    <string name="lblMetros">Metros</string>
+    <string name="lblAbrirMapa">Abrir Mapa</string>
+    <string name="lblCargarResidencia">Cargar datos de residencia</string>
+    <string name="title_activity_maps">Map</string>
+
+    <!-- Pantalla Adulto Mayor-->
+    <string name="lblEstasSiendoCuidado">Estás siendo cuidado por</string>
+    <string name="lblProvicional">Persona Encargada</string>
+    <string name="lblSalir">Salir</string>
+
+
+    <string name="title_activity_prueba">prueba</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="marker_detail_latlng">(%1$.2f, %2$.2f)</string>
+
 </resources>

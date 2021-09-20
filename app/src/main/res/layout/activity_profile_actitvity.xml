@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@color/colorPrimary"
+    tools:context=".ProfilePEActitvity">
+
+    <ImageView
+        android:id="@+id/imgLogo"
+        android:layout_width="161dp"
+        android:layout_height="182dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
+
+    <Button
+        android:id="@+id/btnAdministrarAdultoMayor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:background="@color/black"
+        android:text="Administrar Adulto Mayor"
+        android:textColor="@color/white" />
+
+    <Button
+        android:id="@+id/btnMonitorearAdultoMayor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Monitorear Adulto Mayor"
+        android:layout_margin="20dp"
+        android:background="@color/black"
+        android:textColor="@color/white"/>
+    <Button
+        android:id="@+id/btnAdministrarCuenta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ADMINISTRAR MI CUENTA"
+        android:layout_margin="20dp"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/white"/>
+    <Button
+        android:id="@+id/btnSignout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="CERRAR SESION"
+        android:layout_margin="20dp"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/white"/>
+
+</LinearLayout>
