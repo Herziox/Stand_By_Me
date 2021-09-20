@@ -23,13 +23,12 @@ public class AdminPE extends AppCompatActivity {
     private EditText mNombre, mApellido, mcorreo, mCedula,mNumCelular, mPassword;
     private Button mButtonActualizar, mButtonCambiarContraseña, mButtonSalir;
     private FirebaseAuth mFirebaseAuth;
-    private DatabaseReference mDatabaseReference;
+    private  DatabaseReference mDatabaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_pe);
-
         mFirebaseAuth = FirebaseAuth.getInstance();
         mDatabaseReference = FirebaseDatabase.getInstance().getReference();
 
