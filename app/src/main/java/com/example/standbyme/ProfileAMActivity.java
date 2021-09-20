@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -13,6 +12,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
+import com.example.standbyme.model.AdultoMayor;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -71,13 +71,13 @@ public class ProfileAMActivity extends AppCompatActivity {
                 .addOnSuccessListener(this, new OnSuccessListener<Location>() {
                     @Override
                     public void onSuccess(Location location) {
-                        //mDatabase.child("AdultoMayor1").child(cedula).child("long_real").setValue(location.getLongitude());
-                        //mDatabase.child("AdultoMayor1").child(cedula).child("lat_real").setValue(location.getLatitude());
                         if (location != null) {
-                            Log.e("Latitud",+location.getLatitude()+"Longitud:"+location.getLongitude());
+                            AdultoMayor am = new AdultoMayor();
+                            am.setLatitudReal(String.valueOf(location.getLatitude()));
+                            am.setLongitudReal(String.valueOf(location.getLongitude()));
                             text1.setText("Ubicación enviada");
-                            mDatabase.child("AdultoMayor1").child(cedula).child("long_real").setValue(location.getLongitude());
-                            mDatabase.child("AdultoMayor1").child(cedula).child("lat_real").setValue(location.getLatitude());
+                            mDatabase.child("AdultoMayor1").child(cedula).child("latitudReal").setValue(am.getLatitudReal());
+                            mDatabase.child("AdultoMayor1").child(cedula).child("longitudReal").setValue(am.getLongitudReal());
                         }
                     }
                 });

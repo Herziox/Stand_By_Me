@@ -200,6 +200,8 @@ public class RegistroAdultoMayor extends AppCompatActivity {
                     am.setRangoDeCirculacion(rango);
                     am.setLongitud(latitud);
                     am.setLatitud(longitud);
+                    am.setLatitudReal(latitud);
+                    am.setLongitudReal(longitud);
                     databaseReference.child("AdultoMayor1").child(am.getUid()).setValue(am);
                     Toast.makeText(RegistroAdultoMayor.this, "Agregado", Toast.LENGTH_SHORT).show();
                     limpiarCajas();
@@ -225,6 +227,8 @@ public class RegistroAdultoMayor extends AppCompatActivity {
                         am.setRangoDeCirculacion(rango);
                         am.setLongitud(longitud);
                         am.setLatitud(latitud);
+                        am.setLatitudReal(latitud);
+                        am.setLongitudReal(longitud);
                         databaseReference.child("AdultoMayor1").child(am.getUid()).setValue(am);
                         Toast.makeText(this, "Actualizado", Toast.LENGTH_SHORT).show();
                         limpiarCajas();

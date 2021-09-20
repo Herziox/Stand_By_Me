@@ -14,6 +14,8 @@ public class AdultoMayor {
     private String rangoDeCirculacion;
     private String latitud;
     private String longitud;
+    private String latitudReal;
+    private String longitudReal;
 
 
     public AdultoMayor() {
@@ -120,7 +122,21 @@ public class AdultoMayor {
         this.longitud = longitud;
     }
 
+    public String getLatitudReal() {
+        return latitudReal;
+    }
 
+    public void setLatitudReal(String latitudReal) {
+        this.latitudReal = latitudReal;
+    }
+
+    public String getLongitudReal() {
+        return longitudReal;
+    }
+
+    public void setLongitudReal(String longitudReal) {
+        this.longitudReal = longitudReal;
+    }
 
     @Override
     public String toString() {
